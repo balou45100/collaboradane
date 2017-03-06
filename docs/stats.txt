@@ -1,0 +1,31 @@
+Modules
+Accueil (jusqu'au 6/7/09)
+Tableau de bord (depuis le 6/7/09)
+ECL (écoles, collèges, lycées)
+Gestion des tickets
+Personnes ressources TICE
+Formations
+Répertoire des sociétés
+Contacts des sociétés
+Contacts privés
+Festival
+Rencontres TICE
+Matériels
+Tâches
+Favoris
+Crédits
+Suivi développement
+Recherche
+Catégories
+Statistiques
+Informations personnelles
+Utilisateurs
+Administration
+Dossiers
+Publipostage
+évolutions futures
+courrier
+groupes
+
+Nombre d'accès à certaines fonctions
+Alertes

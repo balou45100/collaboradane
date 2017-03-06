@@ -1,0 +1,27 @@
+ACC : Accueil (jusqu'au 6/7/09)
+ALE : alertes
+CAT : gestion catégories 
+CON : gestion contacts
+COP : gestion contacts privés
+COU : gestion courrier
+CRE : gestion crédits
+DEV : développement collaboratice
+DOS : module dossiers
+ECL : répertoire établissements
+FAV : favoris
+FGM : Festival
+FOR : formation
+GMA : gestion matériels
+GRO : gestion groupes
+GTI : gestion tickets
+GUS : gestion utilisateurs
+PUB : publipostage
+REC : recherche tickets
+REG : réglages pour tableau de bord
+REP : gestion répertoire sociétés
+RES : gestion personnes ressources
+RTI : Rencontres TICE
+STA : statistiques
+TAC : tâches
+TBO : tableau de bord
+VER : vérification base

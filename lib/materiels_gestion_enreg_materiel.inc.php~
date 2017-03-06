@@ -1,0 +1,59 @@
+<?php
+	$denomination = $_GET['denomination'];
+	$id_typemateriel = $_GET['id_typemateriel'];
+	$id_origine = $_GET['id_origine'];
+	$id_affectation = $_GET['id_affectation'];
+	$jour_livraison = $_GET['jour_livraison'];
+	$mois_livraison = $_GET['mois_livraison'];
+	$annee_livraison = $_GET['annee_livraison'];
+	$id_chapitre_credits = $_GET['id_chapitre_credits'];
+	$prix_achat = $_GET['prix_achat'];
+	$annee_budgetaire = $_GET['annee_budgetaire'];
+	$nombre_articles = $_GET['nombre_articles'];
+
+	//Préparation des dates à enregistrer
+	$date_livraison_a_enregistrer = crevardate($jour_livraison,$mois_livraison,$annee_livraison);
+	
+	//Il faut vérifier la saisie du prix et remplacer la virgule par un point
+	$prix_achat = ereg_replace(',','.', $prix_achat);
+
+/*
+	echo "<br>denomination : $denomination";
+	echo "<br>id_typemateriel : $id_typemateriel";
+	echo "<br>id_origine : $id_origine";
+	echo "<br>id_affectation : $id_affectation";
+	echo "<br>id_chapitre_credits : $id_chapitre_credits";
+	echo "<br>annee_budgetaire : $annee_budgetaire";
+	echo "<br>prix_achat : $prix_achat";
+*/	
+
+	//enregistrement dans la base
+	for ($nbr_articles = 1; $nbr_articles <= $nombre_articles; $nbr_articles++)
+	{
+ 		$requete_enreg = "INSERT INTO materiels
+		(
+			`denomination` ,
+			`categorie_principale` ,
+			`date_livraison` ,
+			`origine` ,
+			`credits` ,
+			`affectation_materiel` ,
+			`annee_budgetaire` ,
+			`prix`
+		)
+		VALUES
+		(
+			'".$denomination."', '".$id_typemateriel."', '".$date_livraison_a_enregistrer."', '".$id_origine."', '".$id_chapitre_credits."', '".$id_affectation."', '".$annee_budgetaire."', '".$prix_achat."'
+		);";
+		$result_enreg = mysql_query($requete_enreg);
+		if (!$result_enreg)
+		{
+			echo "<h2>Erreur lors de l'enregistrement</h2>";
+		}
+		else
+		{
+			echo " * ";
+		}
+	}
+	echo "<br></br>";
+?>

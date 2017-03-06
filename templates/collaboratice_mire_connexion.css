@@ -1,0 +1,166 @@
+.mire-connexion { /*pour fixer la mire de connexion*/
+	text-align: center;
+	margin: 5px 5px;
+	color: #545050;
+	width: 80%;
+	border: 0;
+}
+
+.logo {
+	border: 0;
+}
+
+.nom_espace {
+	position: absolute;
+	top: 675px;
+	left: 36px;
+	font-size: 1.05em;
+	font-weight: bold;
+}
+
+.titre {
+	position: absolute;
+	top: 326px;
+	left: 350px;
+	//font-size: 1.1em;
+	font-weight: bold;
+}
+
+.erreur-connexion {
+	position: absolute;
+	top: 315px;
+	left: 40px;
+	font-size: 1.4em;
+	font-weight: bold;
+	color: red;
+}
+
+.envoi-mdp {
+	position: absolute;
+	top: 315px;
+	left: 40px;
+	font-size: 1.3em;
+	font-weight: bold;
+	color: red;
+}
+
+.titre-oubli-mdp {
+	position: absolute;
+	top: 370px;
+	left: 180px;
+	font-size: 1.4em;
+	font-weight: bold;
+	text-align: center;
+	color: red;
+}
+
+.intitule-champ-identifiant {
+	position: absolute;
+	top: 359px;
+	left: 350px;
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+.intitule-champ-mdp {
+	position: absolute;
+	top: 407px;
+	left: 347px;
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+.intitule-champ-oubli-mdp {
+	position: absolute;
+	//top: 730px;
+	//left: 305px;
+	//top: 506px;
+	//left: 315px;
+	top: 419px;
+	left: 765px;
+	font-size: 0.8em;
+	color: white;
+	font-weight: bold;
+}
+
+.intitule-champ-adresse {
+	position: absolute;
+	top: 370px;
+	left: 350px;
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+.champ-adresse {
+	position: absolute;
+	top: 390px;
+	left: 340px;
+}
+
+.bouton-valid-adresse {
+	position: absolute;
+	top: 420px;
+	left: 340px;
+}
+
+.champ-identifiant {
+	position: absolute;
+	top: 372px;
+	left: 335px;
+}
+
+.champ-mdp {
+	position: absolute;
+	top: 422px;
+	left: 335px;
+}
+
+.bouton-valid1 {
+	position: absolute;
+	top: 450px;
+	left: 345px;
+}
+
+.bouton-valid2 {
+	position: absolute;
+	//top: 725px;
+	//left: 443px;
+	top: 425px;
+	left: 825px;
+
+}
+
+.version {
+	position: absolute;
+	//top: 730px;
+	//left: 37px;
+	top: 705px;
+	left: 307px;
+	//color: white;
+	font-size: 0.7em;
+	//font-weight: bold;
+	text-align: center;
+}
+
+body {
+	background: white;
+	color: #545050;
+	background-image: url(../image/dane_connexion.png); 
+	background-repeat: no-repeat;
+	
+}
+
+#mire1 {
+	margin: 50px 30% 0 30%;
+	padding: 5px 5px 5px 5px;
+	border: #DDEEFF 3px solid;
+	font-size: 1.0em;
+
+}
+
+h1 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 2em;
+	font-family: "Arial Black", Arial, sans-serif;
+}

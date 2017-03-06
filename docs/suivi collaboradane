@@ -1,0 +1,33 @@
+Collaboratice - Collaboradane
+
+2.2.6.1 du 9 juin 2016
+- modification d'une première série de pages "inc" (jusqu'au module "matériels" :
+  - changement du type de document en unicode UTF8
+  - le cas échéant, remplacement de la déclaration du charset=iso-8859-1 vers charset=UTF-8
+  
+2.2.6.0 du 9 juin 2016
+- modification d'une deuxième série de pages pour résoudre le problème de l'affichage des caractères :
+  - type de document en unicode UTF8
+  - remplacement des DOCTYPE pour <!DOCTYPE HTML> (HTML 5)
+  - remplacement de la déclaration du charset=iso-8859-1 vers charset=UTF-8
+  - ajout de header('Content-Type: text/html;charset=UTF-8'); en débit de script php
+
+2.2.5.0 du 2 juin 2016
+- modification d'une première série de pages pour résoudre le problème de l'affichage des caractères :
+  - type de document en unicode UTF8
+  - remplacement des DOCTYPE pour <!DOCTYPE HTML> (HTML 5)
+  - remplacement de la déclaration du charset=iso-8859-1 vers charset=UTF-8
+  - ajout de header('Content-Type: text/html;charset=UTF-8'); en débit de script php
+
+2.2.2.2 du 8 mai 2016
+Gestion des événements
+- Modification table evenements : ajout du 'omp' pour distinguer d'un événements ordinaire
+- modifier script evenements_accueil : retirer les OMP de l'affichage
+- séparation du "module OM" pour la gestion des EF -> même structure, ajout d'entêtes OM et EF qui filtrent les enregistrements
+- ajout d'une fonction pour indiquer qu'un participant n'a pas besoin de OM -> etat -1
+- ajout d'une fonction pour réactiver le besoin d'OM
+- ajout d'une fonction signalant que les OM sont à la signature :
+	- suppression de l'état annulé
+	- décalage des autres états 7 -> 8, 6 -> 7 ... 2-> 3
+	- modification des feuilles de styles pour ajouter des styles "om_sans", "om_marquer_a_la_signature"
+	

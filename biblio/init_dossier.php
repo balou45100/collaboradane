@@ -1,0 +1,1 @@
+<?php	//Fichier pour la connexion à la base de données	$host="localhost";	$user="giterai97";	$passe="ipiFouvoho";	$base="collaboratice";		//$connect = @mysql_connect ($host, $user, $passe);	//@mysql_select_db ($base);		include ("dossier_mysql.php");		$co = new Mysql ($host, $user, $passe, $base);	$co->connect($base);	?>

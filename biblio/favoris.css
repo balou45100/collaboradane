@@ -1,0 +1,59 @@
+<style type="text/css">
+
+table {
+
+	font-family: arial, helvetica, sans-serif;
+	/*font-size: 12px;*/
+        color: #000000;
+	margin: 0;
+}
+
+/* tableau pour les favoris */
+.tablefavoris
+{
+	border: 1px solid #666666;
+	/*background-color: #f1f1f1;*/
+	background-color: #7FFFD4;
+	font-family: arial, helvetica, sans-serif;
+	/*font-size: 12px;*/
+	font-weight: normal;
+	/*color: #000000;*/
+	color: #00336F;
+}
+
+.tablefavoris th {
+	background-color: #48D1CC;
+	/*background-color: #666666;*/
+    font-size: 16px;
+	padding: 2px;
+    font-weight: bold;
+    color: #000000;
+    border: 0px;
+    border-bottom: 1px solid #666666;
+    text-align: left;
+}
+
+.tablefavoris td {
+	padding: 2px;
+    border: 0px;
+	font-family: arial, helvetica, sans-serif;
+	/*font-size: 12px;*/
+	font-weight: normal;
+	/*color: #000000;*/
+	color: #00336F;
+}
+
+.tablefavoris tr {
+	padding: 2px;
+    border: 0px;
+}
+
+/*//////////////////////////////
+/// Gestion des liens////////
+////////////////////////////////*/
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none;}
+
+
+</style>

@@ -1,0 +1,244 @@
+<?php
+	//Initialisation des variables pour la saisie des dates
+	$aujourdhui_jour = date('d');
+	$aujourdhui_mois = date('m');
+	$aujourdhui_annee = date('Y');
+
+	echo "<form action=\"materiels_gestion.php\" method=\"get\">";
+	echo "<br><table border = \"1\" align = \"center\">";
+	//echo "<caption>Renseignements sur la t&acirc;che</caption>";
+		echo "<colgroup>";
+			echo "<col width=\"50%\">";
+			echo "<col width=\"50%\">";
+			//echo "<col width=\"40%\">";
+			//echo "<col width=\"10%\">";
+			//echo "<col width=\"20%\">";
+		echo "</colgroup>";
+
+	
+		echo "<tr>";
+			echo "<td bgcolor = \"$bg_color1\" align = \"right\">";
+				echo "D&eacute;nomination&nbsp;:&nbsp;";
+			echo "</td>";
+			echo "<td>";
+				echo "<input type=\"text\" name=\"denomination\" size = \"50\" />";
+			echo "</td>";
+		echo "</tr>";
+		echo "<tr>";
+			echo "<td bgcolor = \"$bg_color1\" align = \"right\">";
+				$requete_materiels="SELECT DISTINCT id_cat_princ,intitule_cat_princ FROM materiels_categories_principales ORDER BY intitule_cat_princ";
+				$result_materiels=mysql_query($requete_materiels);
+				$num_rows = mysql_num_rows($result_materiels);
+				echo "Type de mat&eacute;riel&nbsp;:&nbsp;";
+			echo "</td>";
+			echo "<td>";
+				echo "<select size=\"1\" name=\"id_typemateriel\">";
+				if (mysql_num_rows($result_materiels))
+				{
+					echo "<option selected value=\"\">Faire un choix</option>";
+					while ($ligne=mysql_fetch_object($result_materiels))
+					{
+						$intitule_typemateriel=$ligne->intitule_cat_princ;
+						$id_typemateriel=$ligne->id_cat_princ;
+						echo "<option value=\"$id_typemateriel\">$intitule_typemateriel</option>";
+					}
+				}
+				echo "</SELECT>"; 
+			echo "</td>";
+		echo "</tr>";
+		echo "<tr>";
+			echo "<td bgcolor = \"$bg_color1\" align = \"right\">";
+				$requete_origine="SELECT DISTINCT id_origine,intitule_origine FROM materiels_origine ORDER BY intitule_origine";
+				$result_origine=mysql_query($requete_origine);
+				$num_rows = mysql_num_rows($result_origine);
+				echo "Propri&eacute;taire&nbsp;:&nbsp;";
+			echo "</td>";
+			echo "<td>";
+				echo "<select size=\"1\" name=\"id_origine\">";
+				if (mysql_num_rows($result_origine))
+				{
+					echo "<option selected value=\"1\">Mission TICE</option>";
+					while ($ligne_origine=mysql_fetch_object($result_origine))
+					{
+						$id_origine=$ligne_origine->id_origine;
+						$intitule_origine=$ligne_origine->intitule_origine;
+						echo "<option value=\"$id_origine\">$intitule_origine</option>";
+					}
+				}
+				echo "</SELECT>"; 
+			echo "</td>";
+		echo "</tr>";
+		echo "<tr>";
+			echo "<td bgcolor = \"$bg_color1\" align = \"right\">";
+					$requete_affectation="SELECT DISTINCT id_affectation,intitule_affectation FROM materiels_affectations ORDER BY intitule_affectation";
+				$result_affectation=mysql_query($requete_affectation);
+				$num_rows = mysql_num_rows($result_affectation);
+					echo "Affectation&nbsp;:&nbsp;";
+			echo "</td>";
+			echo "<td>";
+				echo "<select size=\"1\" id=\"form_affectation\" name=\"id_affectation\">";
+				if (mysql_num_rows($result_affectation))
+				{
+					echo "<option selected value=\"2\">R&eacute;serve Mendel</option>";
+					while ($ligne_affectation=mysql_fetch_object($result_affectation))
+					{
+						$intitule_affectation=$ligne_affectation->intitule_affectation;
+						$id_affectation=$ligne_affectation->id_affectation;
+						if ($intitule_affectation <>"réserve à déterminer")
+							{
+							echo "<option value=\"$id_affectation\">$intitule_affectation</option>";
+						}
+					}
+				}
+				echo "</SELECT>";
+			echo "</td>";
+		echo "</tr>";
+		echo "<tr>";
+			echo "<td bgcolor = \"$bg_color1\" align = \"right\">Date de livraison&nbsp;:&nbsp;</td>";
+			echo "<td>
+				<select size=\"1\" name=\"jour_livraison\">
+						<option selected value=\"$aujourdhui_jour\">$aujourdhui_jour</option>
+						<option value=\"1\">01</option>
+						<option value=\"2\">02</option>
+						<option value=\"3\">03</option>
+						<option value=\"4\">04</option>
+						<option value=\"5\">05</option>
+						<option value=\"6\">06</option>
+						<option value=\"7\">07</option>
+						<option value=\"8\">08</option>
+						<option value=\"9\">09</option>
+						<option value=\"10\">10</option>
+						<option value=\"11\">11</option>
+						<option value=\"12\">12</option>
+						<option value=\"13\">13</option>
+						<option value=\"14\">14</option>
+						<option value=\"15\">15</option>
+						<option value=\"16\">16</option>
+						<option value=\"17\">17</option>
+						<option value=\"18\">18</option>
+						<option value=\"19\">19</option>
+						<option value=\"20\">20</option>
+						<option value=\"21\">21</option>
+						<option value=\"22\">22</option>
+						<option value=\"23\">23</option>
+						<option value=\"24\">24</option>
+						<option value=\"25\">25</option>
+						<option value=\"26\">26</option>
+						<option value=\"27\">27</option>
+						<option value=\"28\">28</option>
+						<option value=\"29\">29</option>
+						<option value=\"30\">30</option>
+						<option value=\"31\">31</option>
+					</select>
+					<select size=\"1\" name=\"mois_livraison\">
+						<option selected value=\"$aujourdhui_mois\">$aujourdhui_mois</option>
+						<option value=\"1\">01</option>
+						<option value=\"2\">02</option>
+						<option value=\"3\">03</option>
+						<option value=\"4\">04</option>
+						<option value=\"5\">05</option>
+						<option value=\"6\">06</option>
+						<option value=\"7\">07</option>
+						<option value=\"8\">08</option>
+						<option value=\"9\">09</option>
+						<option value=\"10\">10</option>
+						<option value=\"11\">11</option>
+						<option value=\"12\">12</option>
+					</select>
+					<select size=\"1\" name=\"annee_livraison\">
+						<option selected value=\"$aujourdhui_annee\">$aujourdhui_annee</option>
+						<option value=\"2008\">2008</option>
+						<option value=\"2009\">2009</option>
+						<option value=\"2010\">2010</option>
+						<option value=\"2011\">2011</option>
+						<option value=\"2012\">2012</option>
+						<option value=\"2013\">2013</option>
+						<option value=\"2014\">2014</option>
+						<option value=\"2015\">2015</option>
+					</select>";
+			echo "</td>";
+		echo "</tr>";
+		echo "<tr>";
+			echo "<td bgcolor = \"$bg_color1\" align = \"right\">Ann&eacute;e budg&eacute;taire&nbsp;:&nbsp;</td>";
+			echo "<td>
+				<select size=\"1\" name=\"annee_budgetaire\">
+						<option selected value=\"$aujourdhui_annee\">$aujourdhui_annee</option>
+						<option value=\"2008\">2008</option>
+						<option value=\"2009\">2009</option>
+						<option value=\"2010\">2010</option>
+						<option value=\"2011\">2011</option>
+						<option value=\"2012\">2012</option>
+						<option value=\"2013\">2013</option>
+						<option value=\"2014\">2014</option>
+						<option value=\"2015\">2015</option>
+					</select>";
+			echo "</td>";
+		echo "</tr>";
+
+		echo "<tr>";
+			echo "<td bgcolor = \"$bg_color1\" align = \"right\">";
+				$requete_credits="SELECT DISTINCT id_chapitre,intitule_chapitre,id_gestionnaire FROM credits_chapitres ORDER BY intitule_chapitre";
+				$result_credits=mysql_query($requete_credits);
+				$num_rows = mysql_num_rows($result_credits);
+				echo "Chapitre des cr&eacute;dits&nbsp;:&nbsp;";
+			echo "</td>";
+			echo "<td>";
+				echo "<select size=\"1\" name=\"id_chapitre_credits\">";
+				if (mysql_num_rows($result_credits))
+				{
+					echo "<option selected value=\"\">Faire un choix</option>";
+					while ($ligne_credits=mysql_fetch_object($result_credits))
+					{
+						$intitule_chapitre=$ligne_credits->intitule_chapitre;
+						$id_gestionnaire = $ligne_credits->id_gestionnaire;
+						$id_chapitre = $ligne_credits->id_chapitre;
+						//Il faut récupérer l'intitulé du gestionnaire
+						$requete_gestionnaire="SELECT DISTINCT intitule_gestionnaire FROM credits_gestionnaires WHERE id_gestionnaire = '".$id_gestionnaire."'";
+						$result_gestionnaire=mysql_query($requete_gestionnaire);
+						$num_rows = mysql_num_rows($result_credits);
+						$ligne_gestionnaire=mysql_fetch_object($result_gestionnaire);
+						$intitule_gestionnaire = $ligne_gestionnaire->intitule_gestionnaire;
+				
+						echo "<option value=\"$id_chapitre\">$intitule_gestionnaire - $intitule_chapitre</option>";
+					}
+				}
+				echo "</SELECT>"; 
+			echo "</td>";
+		echo "</tr>";
+		echo "<tr>";
+			echo "<td bgcolor = \"$bg_color1\" align = \"right\">";
+				echo "Prix TTC&nbsp;:&nbsp;";
+			echo "</td>";
+			echo "<td>";
+				echo "<input type=\"text\" name=\"prix_achat\" size = \"10\" /> &euro;";
+			echo "</td>";
+		echo "</tr>";
+		echo "<tr>";
+			echo "<td bgcolor = \"$bg_color1\" align = \"right\">";
+				echo "Nombre d'article &agrave; enregistrer&nbsp;:&nbsp;";
+			echo "</td>";
+			echo "<td>";
+				echo "<input type=\"text\" name=\"nombre_articles\" size = \"5\" />";
+			echo "</td>";
+		echo "</tr>";
+		echo "<tr>";
+			echo "<td bgcolor = \"$bg_color1\" align = \"right\">";
+				echo "D&eacute;tails de l'article&nbsp;:&nbsp;";
+			echo "</td>";
+			echo "<td>";
+				echo "<textarea name=\"details_article\" rows=\"4\" cols=\"50\"></textarea>";
+//				echo "<input type=\"text\" name=\"nombre_articles\" size = \"5\" />";
+			echo "</td>";
+		echo "</tr>";
+		echo "</table>";
+	echo "<br>";
+	echo "<input type=\"submit\" name=\"bouton_envoyer_modif\" Value = \"Enregistrer l'article\"/>
+			<input type=\"submit\" name=\"bouton_envoyer_modif\" Value = \"Retourner sans enregistrer\"/>
+			<INPUT TYPE = \"hidden\" VALUE = \"$indice\" NAME = \"indice\">
+			<INPUT TYPE = \"hidden\" VALUE = \"enreg_materiel\" NAME = \"a_faire\">
+			<INPUT TYPE = \"hidden\" VALUE = \"filtre\" NAME = \"origine_gestion\">
+			<INPUT TYPE = \"hidden\" VALUE = \"O\" NAME = \"actions_courantes\">
+			<INPUT TYPE = \"hidden\" VALUE = \"ID\" NAME = \"tri\">
+			<INPUT TYPE = \"hidden\" VALUE = \"ASC\" NAME = \"sense_tri\">";
+	echo "</form>";
+?>

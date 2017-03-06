@@ -1,0 +1,68 @@
+/* reset browser styles */
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote {
+ padding: 0;
+ margin: 0;
+ font-size: 100%;
+ font-weight: normal;
+}
+
+body {
+	background : #6C8CD5;
+	color: #FFFFFF;
+}
+table {
+	border-collapse: collapse; 
+	border-spacing: 0;
+	margin: 15px 10px 10px 20px;
+	padding: 5px 5px 5px 5px;
+	//border: 2px solid #CC6633;
+	//border-left: 4px solid #CC6633;
+	//border-bottom: 4px solid #CC6633;
+	color: #FFFFFF;
+	//width: 95%;
+}
+
+td {
+	border: 0px dotted #CC6633;
+	text-align: center;
+}
+
+.IconesAvecTexte {
+	padding: 1px;
+	margin:0px; 
+	padding-right: 10px;
+	font-size: 0.8em;
+	text-align: center;
+}
+
+.format-util-connecte {
+	text-align: center;
+	font-size: 0.7em;
+}
+
+.MenuModules {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 0.8em;
+	font-weight: normal;
+	margin:5px; 
+	padding: 0;
+	border: 0;
+	//text-align: right;
+}
+
+a.MenuModules:link, a.MenuModules:visited, a.MenuModules:active {
+	color: #000000;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 4px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+	border: 0;
+	padding: 2px;
+}
+
+a.MenuModules:hover {
+	color: #399EFF;
+	text-decoration: none;
+}
+

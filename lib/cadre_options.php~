@@ -1,0 +1,32 @@
+<?php
+	//Lancement de la session
+	session_start();
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!"Ce fichier permet de rentrer dans le module pour aficher les informations personnelles">
+<?php
+	//include ("../biblio/ticket.css");
+	include ("../biblio/fct.php");
+	include ("../biblio/config.php");
+	if(!isset($_SESSION['nom']))
+	{
+		echo "<BR><BR><BR><BR><CENTER><FONT COLOR = \"#808080\"><B>".MESSAGE_NON_CONNECTE1."</B></FONT></CENTER>";
+		echo "<BR><BR><CENTER><A target=\"_top\" HREF=\"../index.php\" class = \"bouton\">".MESSAGE_NON_CONNECTE2."</A></CENTER>";
+		exit;
+	}
+	else
+	{
+		enreg_utilisation_module("REG");
+	}
+?>
+<html>
+	<head>
+  		<title>CollaboraTICE</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	</head>
+				<frameset rows="*,60">
+					<frame name="body" src="option.php" FRAMEBORDER="0">
+					<frame name="cadre_modules" src="modules.php" FRAMEBORDER="0" scrolling="no">
+				</frameset>
+</html>

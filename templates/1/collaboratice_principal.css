@@ -1,0 +1,718 @@
+/* reset browser styles */
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote {
+ padding: 0;
+ margin: 0;
+ font-size: 100%;
+ font-weight: normal;
+ font-family: Arial, sans-serif;
+}
+
+/*.entete_tableau {background: #CC6633;color: #000000;font-size: 1.1em;}*/
+.fond-actions {background: #505050;color: #000000;font-size: 1.1em;} /* la couleur du fond de la colonne pour les actions originellement #FF9966*/
+.verrou{background: #FF0000;color: #FFFFFF;}
+.ferme {background: #F1EF69;color: #7F7F7F;}
+
+/* coloration des cellules en fonction des &eacute;tats des tickets*/
+.nouveau {background: #ffffff;}
+.en_cours {background: #00cc33;}
+.transfere {background: #ff0000;}
+.attente {background: #ffff66;}
+.acheve {background: #FF9FA3;}
+
+/* coloration des cellules en fonction des frais pour les OM*/
+.avec {background: #008000;}
+.sans {background: #FF0000;}
+
+/* coloration des cellules en fonction de l'état d'un OM ou EF*/
+.om_sans {background: #ffffff;}
+.om_NonEdite {background: #ffffff;}
+.om_edite {background: #7FB8EF;}
+.om_en_signature {background: #7FB8EF;}
+.om_envoye {background: #0F00CC;}
+.om_present {background: #008000;}
+.om_absent {background: #FF0000;}
+.om_valide {background: #FFFF00;}
+.om_revise {background: #FDFD72;}
+.om_refuse {background: #FFC0CB;}
+.ef_valide {background: #FFFF00;}
+.ef_revise {background: #FDFD72;}
+.ef_refuse {background: #FFC0CB;}
+.ef_annule {background: #7F7F7F;}
+.ef_paye {background: #008000;}
+.fond_om {background: #E6E6FA;}
+.fond_ef {background: #7F7F7F;}
+
+.priorite_haute {background: #ff0000; text-align: center;}
+.priorite_normale {background: #FFCC66; text-align: center;}
+.priorite_basse {background: #ffff66; text-align: center;}
+.priorite_sans {background: #ffffff; text-align: center;}
+
+/*Pour la gestion de la pagination*/
+.page_courante {font-size: 1.4em; font-weight: bold; color: #545050;}
+.page_a_cliquer {font-size: 1em; font-weight: normal; color: #545050;}
+
+/*Pour la colorisation des lignes en fonction des dates */
+.avant_date {background: #FF9966;}
+
+/*Pour les formulaires d'affichage */
+.etiquette {background : #CC6633; text-align: right; color: white; font-weight: bold;}
+.champ_obligatoire {color: #A52A2A; font-weight: bold;}
+
+/*pour les r&eacute;ponses */
+.reponse {background : #FF9966;}
+
+.menu-boutons { /*pour fixer les menus sous forme d'icônes au-dessus des listes*/
+	//background: #FF9966;
+	background: #FF9966;
+	text-align: center;
+	margin: 5px 5px;
+	color: #545050;
+}
+
+#entete-collaboratice {
+	background: #FF9966;
+	//text-align: center;
+	padding: 3px;
+}
+
+#entete-collaboratice h2 {
+	font-size: 2em;
+	color: white;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 180px;
+	text-align: left;
+	font-weight: bold;
+}
+
+#body_tb {
+	margin: 0px 5px 5px 40px;
+}
+
+.logo {
+	position : absolute;
+	top: 6px;
+	left: 5px;
+	border: 0;
+}
+
+.logo2 {
+	position : absolute;
+	top: 4px;
+	right: 15px;
+	border: 0;
+}
+
+.titre {
+	position : absolute;
+	top: 0px;
+	left: 1px;
+	border: 0;
+}
+
+.titre2 {
+	position : absolute;
+	top: 88px;
+	left: 1px;
+	border: 0;
+}
+
+body {
+	background : #FFCC66;
+	color: #545050;
+}
+table {
+	background : #E6E6FA;
+	border-collapse: collapse; 
+	border-spacing: 0;
+	margin: 15px 10px 10px 20px;
+	padding: 5px 5px 5px 5px;
+	border: 0px solid #CC6633;
+	//border-left: 4px solid #CC6633;
+	//border-bottom: 4px solid #CC6633;
+	color: #4D4D4D;
+	//width: 95%;
+}
+
+th { /* Les entêtes de tableaux*/
+	background : #CC6633;
+	padding: 5px 2px 2px 5px;
+	text-align: center;
+	color: white;
+}
+
+tr {
+	//border-left: 2px solid #CC6633;
+	border-bottom: 1px dotted #CC6633;
+}
+
+td {
+	border: 1px dotted #CC6633;
+	//border-bottom: 2px solid #CC6633;
+}
+
+h1 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 2em;
+	font-family: Arial, sans-serif;
+}
+
+h2 {
+	font-size: 1.5em;
+	color: #CC6633;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	//text-align: center;
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+}
+
+legend {
+	color: #CC6633;
+	margin: 0px 0px 0px 15px;
+	font-size: 1.1em;
+}
+
+strong {
+	text-transform: uppercase;
+	background : #CC6633;
+	color: white;
+}
+
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none;}
+
+/*Pour le module favoris*/
+
+#tablefavoris table {
+	border-collapse: collapse; 
+	border-spacing: 0;
+	border: 2px solid #CC6633;
+	//background-color: #f1f1f1;
+	//background-color: #7FFFD4;
+	font-family: arial, helvetica, sans-serif;
+	//font-size: 12px;
+	font-weight: normal;
+	//color: #000000;
+	color: #00336F;
+/*
+	border-collapse: collapse; 
+	border-spacing: 0;
+	margin: 15px 10px 10px 20px;
+	padding: 5px 5px 5px 5px;
+	//border-left: 4px solid #CC6633;
+	//border-bottom: 4px solid #CC6633;
+	color: #545050;
+	width: 95%;
+*/
+
+}
+
+#tablefavoris td {
+	padding: 2px;
+    border: 0px;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 1em;
+	font-weight: normal;
+	//color: #000000;
+	color: #00336F;
+}
+
+#tablefavoris tr {
+	padding: 2px;
+    border: 0px;
+}
+
+#tablefavoris th {
+    border: 0px;
+	background-color: #CC6633;
+	font-size: 1.1em;
+	padding: 2px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: left;
+}
+
+#tableom table {
+	//border: 0px;
+	//border-collapse: collapse; 
+	//border-spacing: 0;
+	font-family: arial, helvetica, sans-serif;
+	//font-size: 12px;
+	font-weight: normal;
+	//color: #FFFFFF;
+	//color: #FFFFFF;
+}
+
+#tableom td {
+	padding: 2px;
+	border: 0px;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 1em;
+	font-weight: normal;
+	//color: #000000;
+	color: #00336F;
+}
+
+#tableom tr {
+	padding: 2px;
+    border: 0px;
+}
+
+#tableom th {
+	background-color: #CC6633;
+	font-size: 1.1em;
+	padding: 2px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: left;
+}
+
+table.infos-collaboratice {
+	background : #FFCC66;
+	color: #545050;
+	border: 0px solid #CC6633;
+	font-family: arial, helvetica, sans-serif;
+	margin-left: 150px;
+
+}
+
+tr.infos-collaboratice {
+	border: 0px;
+}
+
+td.infos-collaboratice {
+	border: 0px dotted #CC6633;
+}
+
+.infos-collaboratice-version {
+	position : absolute;
+	top: 110px;
+	right: 10px;
+	border: 0;
+	
+}
+
+/* Pour la barre des modules */
+.IconesAvecTexte {
+	padding: 1px;
+	margin:0px; 
+	padding-right: 2px;
+	font-size: 0.8em;
+	text-align: center;
+}
+
+.format-util-connecte {
+	text-align: center;
+	font-size: 0.7em;
+}
+
+.MenuModules {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 0.8em;
+	font-weight: normal;
+	margin:5px; 
+	padding: 0;
+	border: 0;
+	//text-align: right;
+}
+
+a.MenuModules:link, a.MenuModules:visited, a.MenuModules:active {
+	color: #000000;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 4px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+	border: 0;
+	padding: 2px;
+}
+
+a.MenuModules:hover {
+	color: #399EFF;
+	text-decoration: none;
+}
+
+.verrou{background: #FF0000;color: #FFFFFF;}
+
+/*------------------------------------------------------------------------------------*/
+/*Info bulle g&eacute;n&eacute;rale*/
+a.info_bulle span.info_bulle
+{								   
+  display          : none; /* Rend invisible tout notre bloc span */
+} 
+ 
+a.info_bulle
+{				
+  color           : #2F368A;
+  
+  text-decoration : none; 
+  
+  padding         : 2px 16px 2px 2px; /*D&eacute;finition des marges int&eacute;rieures de notre lien */
+  
+  /* D&eacute;finition de l'arri&egrave;re plan de notre lien */
+  background      : transparent url('images/info_petit.png') no-repeat right center;
+  position        : relative; /* Indispensable pour le bon positionnement de l'info-bulle */ 
+}  
+ 
+a.info_bulle:hover 
+{
+  border          : 0;  /* ligne qui corrige le bug d'IE6 et inf&eacute;rieur */
+} 
+
+a.info_bulle:hover span.info_bulle
+{				
+  display        :  block;    /* Rend visible notre bloc span */
+  position       :  absolute; /* Sort notre bloc de son conteneur afin de le positionner */
+  
+  font-size      : 12px;
+  
+  width          : 220px;     /* On fixe une largeur par d&eacute;faut */
+  
+  color          : #000;      /* R&eacute;initialisation de la couleur du texte */
+  
+  text-align     : justify;   /* Justification du texte */	
+  
+  cursor         : default;   /* R&eacute;initialisation de notre curseur, sinon par d&eacute;faut on a le même que notre lien */
+  
+  /* Positionnement de notre info-bulle */
+  top            : 1.8em;     
+  left           : 1px;
+  
+  z-index        : 1000; /* Positionne au premier plan l'info-bulle en cas de chevauchement */
+}  
+
+span.header
+{
+   display         : block; 
+   height          : 35px;  /* Hauteur correspondant &agrave; celle de notre image */
+   line-height     : 220%;  /* Propri&eacute;t&eacute; qui centrera le texte verticalement */
+   text-align      : center;
+   /*background      : transparent url('./top.gif') no-repeat 0 0;*/ 
+   background     : #FFFFFF;   /* DDEEFFD&eacute;finition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* D&eacute;finition des bordures */
+   padding        : 6px;       /* D&eacute;finition des marges int&eacute;rieures */	  
+   font-size       : 15px; 
+   font-weight     : bold;
+} 
+
+span.content
+{
+   display     : block; 
+   /*background  : transparent url('./centre.gif') repeat-y;*/
+   background     : #FFFFFF;   /* DDEEFFD&eacute;finition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* D&eacute;finition des bordures */
+   padding        : 12px;       /* D&eacute;finition des marges int&eacute;rieures */	  
+   font-size       : 15px; 
+   /*padding     : 0 8px;*/
+} 
+
+span.footer
+{
+   display     : block; 
+   height      : 5px; 
+   /*background  : url('./bot.gif') no-repeat bottom left;*/ 
+   background     : #DDEEFF;   /* D&eacute;finition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* D&eacute;finition des bordures */
+   padding        : 6px;       /* D&eacute;finition des marges int&eacute;rieures */	  
+   font-size   : 0; /* Corrige l'espacement inutile sous IE */
+}         
+/*------------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+/*Info bulle RNE / N° soci&eacute;t&eacute;*/
+a.info_bulle_2 span.info_bulle_2
+{   
+  display          : none; /* Rend invisible tout notre bloc span */
+} 
+ 
+a.info_bulle_2
+{				
+  color           : #2F368A;
+  
+  text-decoration : none; 
+  
+  padding         : 2px 16px 2px 2px; /*D&eacute;finition des marges int&eacute;rieures de notre lien */
+  
+  /* D&eacute;finition de l'arri&egrave;re plan de notre lien */
+  background      : transparent url('images/info_petit.png') no-repeat right center;
+  position        : relative; /* Indispensable pour le bon positionnement de l'info-bulle */ 
+}  
+ 
+a.info_bulle_2:hover 
+{
+  border          : 0;  /* ligne qui corrige le bug d'IE6 et inf&eacute;rieur */
+} 
+
+a.info_bulle_2:hover span.info_bulle_2
+{				
+  display        :  block;    /* Rend visible notre bloc span */
+  position       :  absolute; /* Sort notre bloc de son conteneur afin de le positionner */
+  
+  font-size      : 12px;
+  
+  width          : 400px;     /* On fixe une largeur par d&eacute;faut */
+  
+  color          : #000;      /* R&eacute;initialisation de la couleur du texte */
+  
+  text-align     : justify;   /* Justification du texte */	
+  
+  cursor         : default;   /* R&eacute;initialisation de notre curseur, sinon par d&eacute;faut on a le même que notre lien */
+  
+  /* Positionnement de notre info-bulle */
+  top            : 1.8em;     
+  left           : 1px;
+  
+  z-index        : 1000; /* Positionne au premier plan l'info-bulle en cas de chevauchement */
+}  
+
+span.header_2
+{
+   display         : block; 
+   height          : 35px;  /* Hauteur correspondant &agrave; celle de notre image */
+   line-height     : 220%;  /* Propri&eacute;t&eacute; qui centrera le texte verticalement */
+   text-align      : center;
+   /*background      : transparent url('./top.gif') no-repeat 0 0;*/ 
+   background     : #FFFFFF;   /* DDEEFFD&eacute;finition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* D&eacute;finition des bordures */
+   padding        : 6px;       /* D&eacute;finition des marges int&eacute;rieures */	  
+   font-size       : 15px; 
+   font-weight     : bold;
+} 
+
+span.content_2
+{
+   display     : block; 
+   /*background  : transparent url('./centre.gif') repeat-y;*/
+   background     : #FFFFFF;   /* DDEEFFD&eacute;finition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* D&eacute;finition des bordures */
+   padding        : 12px;       /* D&eacute;finition des marges int&eacute;rieures */	  
+   font-size       : 15px; 
+   /*padding     : 0 8px;*/
+} 
+
+span.footer_2
+{
+   display     : block; 
+   height      : 5px; 
+   /*background  : url('./bot.gif') no-repeat bottom left;*/ 
+   background     : #DDEEFF;   /* D&eacute;finition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* D&eacute;finition des bordures */
+   padding        : 6px;       /* D&eacute;finition des marges int&eacute;rieures */	  
+   font-size   : 0; /* Corrige l'espacement inutile sous IE */
+}         
+
+/*-----------------------------------------------------------------------------------*/
+
+/*Permet de mettre en forme un formulaire de saisie*/
+#monForm
+{
+	width: 60%;
+}
+
+#monForm p
+{
+	margin: 2px 0;
+}
+
+/* fieldset , legend */
+#monForm fieldset
+{
+	margin-bottom: 10px;
+	border: #CCC 1px solid;
+}
+
+#monForm fieldset:hover
+{
+	background-color: #FFF;
+}
+
+#monForm fieldset legend
+{
+	padding: 0 10px;
+	border-left: #CCC 1px solid;
+	border-right: #CCC 1px solid;
+	font-size: 1.2em;
+	color: #777;
+}
+
+
+/* Label */
+#monForm label
+{
+	background-color: #ffff99;
+	display: block;
+	width: 39%;
+	float: left;
+	padding-right: 1%;
+	text-align: right;
+	letter-spacing: 1px;
+}
+
+#monForm label:hover
+{
+	font-weight: bold;
+}
+
+#monForm .form_label_nostyle
+{
+	background: none;
+}
+
+#monForm A
+{
+	background-color: #ffffff;
+	display: block;
+	margin-left: 1%;
+	width: 61%;
+	padding-left: 0%;
+	text-align: left;
+	letter-spacing: 1px;
+	/*border: #CCC 1px solid;*/
+}
+
+/* Input */
+#monForm input, #monForm select
+{
+	margin-left: 1%;
+	width: 58%;
+	border: #CCC 1px solid;
+}
+
+#monForm input:hover, #monForm select:hover, #monForm input:focus, #monForm select:focus
+{
+	border: #999 1px solid;
+	background-color: #DDEEFF;
+}
+
+#monForm .form_input_day_month
+{
+	width: 3%;
+}
+
+#monForm .form_input_year
+{
+	width: 6%;
+}
+
+
+/* button submit */
+#monForm input[type="submit"]
+{
+	border: #DDEEFF 1px solid;
+	width: 27%;
+}
+
+#monForm input[type="submit"]:hover
+{
+	background-color: #F87A09;
+	cursor: pointer;
+}
+
+#monForm input[type="reset"]
+{
+	border: #DDEEFF 1px solid;
+	width: 27%;
+}
+
+#monForm input[type="reset"]:hover
+{
+	background-color: #E6484D;
+	cursor: pointer;
+}
+
+#monForm table
+{
+	border: 1px;
+	text-align: center;
+}
+
+#monForm table:th
+{
+	background-color: #ffff99;
+	text-align: center;
+}
+
+/* Pour le module dossiers */
+.gauche
+{
+	border:1px solid; 		/* rajouté */
+	position : absolute;
+	width : 33%;
+	top : 2px;				/* rajouté */
+	bottom : 0px;			/* rajouté */
+ 	left : 2px;				/* rajouté */
+	padding: 10px;
+	overflow : auto;
+	background-color: #3d5981;	/* rajouté */
+	
+}
+
+.droite
+{
+	border:1px solid; 		/* rajouté */
+	position : absolute;
+	top : 2px;				/* rajouté */
+	bottom : 0px;			/* rajouté */
+	width : 63%;
+	left : 35%;				/* modifié */
+	overflow : auto;
+	padding:10px;
+	background-color: #3d5981;	/* rajouté */
+}
+
+a img
+{
+	border: none;
+} 
+
+a.retour
+{
+	position: absolute;
+	top:60%;
+	left:45%;
+	right:45%;
+	/*font-size:large;*/
+	text-align:center;
+	text-decoration:none;
+	border:0;
+	/*color:green;*/
+}
+
+.important
+{
+	background-color:white;
+	border: 1px solid;
+	position: absolute;
+	top:40%;
+	/*bottom:45%;*/
+	left:30%;
+	right:30%;
+	font-size:x-large;
+	text-align:center;
+	color:red;
+	padding:5px;
+}
+
+.valider
+{
+	background-color:white;
+	border: 1px solid;
+	position: absolute;
+	top:40%;
+	/*bottom:45%;*/
+	left:30%;
+	right:30%;
+	font-size:x-large;
+	text-align:center;
+	color:green;
+	padding:5px;
+}
+
+.titreTableau
+{
+	font-size:large;
+	color:gray;
+}

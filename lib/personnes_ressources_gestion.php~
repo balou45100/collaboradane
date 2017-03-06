@@ -1,0 +1,540 @@
+<?php
+	//Lancement de la session
+	session_start();
+?>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+  
+<!"Ce fichier affiche la liste de tous les �tablissements avec leurs informations et pour chaque �tablissement"
+"Un bouton pour la suppression et la modification">
+
+<html>
+	<head>
+		<title>body</title>
+		<?php
+			include("../biblio/ticket.css");
+			include("../biblio/config.php");
+			if(!isset($_SESSION['nom']))
+			{
+				echo "<BR><BR><BR><BR><CENTER><FONT COLOR = \"#808080\"><B>".MESSAGE_NON_CONNECTE1."</B></FONT></CENTER>";
+				echo "<BR><BR><CENTER><A target=\"_top\" HREF=\"../index.php\" class = \"bouton\">".MESSAGE_NON_CONNECTE2."</A></CENTER>";
+				exit;
+			}
+		?>
+	</head>
+	<!"Pour prot�ger les couleur des liens des boutons"
+	"Choix de la couleur blanche, car sinon il apparait un carr� de couleur moche autour des images"
+	"Correspondant � la suppression et � la modification">
+	<body link="#48D1CC" Vlink="#48D1CC">
+		<CENTER>
+			<?php
+					//Pour filtrer les �tablissements
+				$dep = $_GET['dep'];
+				$intitule_fonction = $_GET['intitule_fonction'];
+				$annee = $_GET['annee'];
+				$indice = $_GET['indice'];
+				$secteur = $_GET['secteur'];
+				$rechercher = $_GET['rechercher'];
+				$dans = $_GET['dans'];
+				$origine = $_GET['origine'];
+				$tri = $_GET['tri']; //Tri sur quelle colonne ?
+				$sense_tri = $_GET['sense_tri']; // ascendant ou descendant
+				$indice = $_GET['indice']; //� partir de quelle page
+				$lettre = $_GET['lettre'];
+				$actions_courantes = $_GET['actions_courantes']; //On doit faire une action sur une personnes ressource 
+				$a_faire = $_GET['a_faire']; //sur une ligne du tableau (modifier, changer d'affectation,...
+				$bouton_envoyer_modif = $_GET['bouton_envoyer_modif']; //sur une ligne du tableau (modifier, changer d'affectation,...
+				if ($bouton_envoyer_modif == "Retourner sans enregistrer")
+				{
+					$actions_courantes = "N";
+					$actions_structurelles = "N";
+				}
+
+				$autorisation_personnes_ressource = $_SESSION['autorisation_personnes_ressource'];
+				//echo "<br>autorisation_personnes_ressource : $autorisation_personnes_ressource";
+/*
+				//R�cup�ration des variables pour faire fonctionner ce script
+				$FGMM = $_GET['FGMM']; //on arrive du fichier fgmm_cadre.php
+				$origine_gestion = $_GET['origine_gestion']; //du cadre, filtre de l'ent�te ou recherche de l'ent�te
+
+*/
+				//Initialisation des variables session pour pouvoir revenir dans cette page de n'importe o�
+				if ($dans == "")
+				{
+					$dans = "T";
+				}
+
+				if (isset($dep))
+				{
+					$_SESSION['departement_en_cours'] = $dep;
+				}
+				else
+				{
+					$dep = $_SESSION['departement_en_cours'];
+				}
+
+				if (isset($annee))
+				{
+					$_SESSION['annee'] = $annee;
+				}
+				else
+				{
+					$annee = $_SESSION['annee'];
+				}
+
+/*
+				if (isset($secteur))
+				{
+					$_SESSION['secteur_en_cours'] = $secteur;
+				}
+				else
+				{
+					$secteur = $_SESSION['secteur_en_cours'];
+				}
+*/
+
+				if (isset($intitule_fonction))
+				{
+					$_SESSION['intitule_fonction_en_cours'] = $intitule_fonction;
+				}
+				else
+				{
+					$intitule_fonction = $_SESSION['intitule_fonction_en_cours'];
+				}
+
+				$dep_en_cours = $_SESSION['departement_en_cours'];
+				//$sec_en_cours = $_SESSION['secteur_en_cours'];
+				$intitule_fonction_en_cours = $_SESSION['intitule_fonction_en_cours'];
+
+				if(!isset($lettre) || $lettre == "")
+				{
+					$lettre = $_SESSION['lettre'];
+				}
+				else
+				{
+					$_SESSION['lettre'] = $lettre;
+				}
+
+				//$_SESSION['origine'] = "repertoire_gestion";
+				//Inclusion des fichiers n�cessaires
+				include ("../biblio/init.php");
+				include ("../biblio/fct.php");
+				$nb_par_page = 15; //Fixe le nombre de ligne qu'il faut afficher � l'�cran
+				/*
+				//Affectation des variables sessions pour contr�le et affichage
+				$ses_origine_gestion = $_SESSION['origine_gestion'];
+				$ses_indice = $_SESSION['indice'];
+				$ses_intitule_fonction = $_SESSION['intitule_fonction'];
+				$ses_rechercher = $_SESSION['rechercher'];
+				$ses_dans = $_SESSION['dans'];
+				$ses_tri = $_SESSION['tri'];
+				$ses_sense_tri = $_SESSION['sense_tri'];
+				$ses_lettre = $_SESSION['lettre'];
+				echo "<BR>variables ordinaires : origine_gestion : $origine_gestion - indice : $indice -  intitule_fonction : $intitule_fonction - � rechercher : $rechercher - dans : $dans - tri : $tri - sense_tri : $sense_tri - lettre $lettre";
+				echo "<BR>variables session : origine_gestion : $ses_origine_gestion - indice : $ses_indice -  intitule_fonction : $ses_intitule_fonction - � rechercher : $ses_rechercher - dans : $ses_dans - tri : $ses_tri - sense_tri : $ses_sense_tri - ses_lettre : $ses_lettre";
+*/
+////////////////////////////////////////////////////////////////////////////////////////////
+//////////// Début du traitement des actions sur les personnes ressources //////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+				if ($actions_courantes == "O")
+				{
+					$id = $_GET['id'];
+					//echo "<br>id : $id";
+					switch ($a_faire)
+					{
+						case "afficher_fiche_materiel" :
+							include ("materiels_gestion_affiche_fiche_materiel.inc.php");
+							//echo "<h1>Afficher la fiche du matériel $id</h1>";
+							//echo "<A HREF = \"materiels_gestion.php?origine_gestion=filtre&amp;actions_courantes=N&amp;indice=$indice\" target = \"body\"><h2>Retour à la liste</h2></A>";
+							$affichage ="N";
+						break; //ajout_materiel
+
+						case "ajout_personne" :
+							//include ("personnes_ressources_gestion_ajout_personnes.inc.php");
+							echo "<h1>Ajout d'une personne ressource</h1>";							
+							$affichage ="N";
+						break; //ajout_materiel
+
+						case "enreg_materiel" :
+							include ("materiels_gestion_enreg_materiel.inc.php");
+						break; //ajout_materiel
+
+						case "modif_materiel" :
+							include ("materiels_gestion_modifier_materiel.inc.php");
+							$affichage ="N";
+						break; //modif_materiel
+
+						case "maj_materiel" :
+							include ("materiels_gestion_maj_materiel.inc.php");
+						break; //modif_materiel
+
+						case "changer_affectation" :
+							include ("materiels_gestion_changer_affectation.inc.php");
+							$affichage ="N";
+						break; //changer_affectation
+
+						case "supprimer_materiel" :
+							include ("materiels_gestion_supprimer_materiel.inc.php");
+							$affichage ="N";
+						break; //supprimer_materiel
+
+						case "confirme_supprimer_materiel" :
+							$id = $_GET['id'];
+							$requete_suppression = "DELETE FROM materiels WHERE id =".$id.";";
+							$resultat_suppression = mysql_query($requete_suppression);
+							if(!$resultat_suppression)
+							{
+								echo "<h2>Erreur</h2>";
+							}
+							else
+							{
+								echo "<h2>Le mat&eacute;riel a &eacute;t&eacute; supprim&eacute;e.<h2>";
+							}
+						break; //supprimer_materiel
+					} //Fin switch $a_faire
+				} //Fin if actions_courantes == O
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////// Fin des actions sur les personnes ressources ////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////// Début du script principal pour l'affichage des enregistrepments ///////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+				if ($affichage <> "N")
+				{
+					if ($autorisation_personnes_ressource == "O") //Seul les personnes ayant le droit peuvent ins�rer une nouvelle personnes ressource
+					{
+						echo "<A HREF = \"personnes_ressources_gestion.php?origine_gestion=filtre&amp;actions_courantes=O&amp;a_faire=ajout_personne\" class = \"bouton\">Ins&eacute;rer une nouvelle personne ressource</A>";
+					}
+					switch ($dep)
+					{
+						case 'T' :
+							$rne_a_inclure = "%";
+							$affiche_departement = "de l'acad&eacute;mie";
+						break;
+	
+						case '18' :
+							$rne_a_inclure = "018";
+							$affiche_departement = "du d&eacute;partement du Cher";
+						break;
+
+						case '28' :
+							$rne_a_inclure = "028";
+							$affiche_departement = "du d&eacute;partement de l'Eure-et-Loire";
+						break;
+
+						case '36' :
+							$rne_a_inclure = "036";
+							$affiche_departement = "du d&eacute;partement de l'Indre";
+						break;
+
+						case '37' :
+							$rne_a_inclure = "037";
+							$affiche_departement = "du d&eacute;partement de l'Indre-et-Loire";
+						break;
+
+						case '41' :
+							$rne_a_inclure = "041";
+							$affiche_departement = "du d&eacute;partement du Loir-et-Cher";
+						break;
+
+						case '45' :
+							$rne_a_inclure = "045";
+							$affiche_departement = "du d&eacute;partement du Loiret";
+						break;
+					} //Fin switch ($dep)
+					
+					//Affectation du joker "%" s'il faut afficher tous les types de la table
+					if ($intitule_fonction_en_cours == 'T')
+					{
+						$intitule_pour_requete = "%";
+					}
+					else
+					{
+						$intitule_pour_requete = $intitule_fonction_en_cours;
+					}
+					//Affectation du joker "%" s'il faut afficher tous les secteurs de la table 
+/*
+					if ($secteur == 'T')
+					{
+						$secteur_pour_requete = "%";
+					}
+					else
+					{
+						$secteur_pour_requete = $secteur;
+					}
+*/
+					//La requete g�n�rale � ex�cuter
+					//echo "<BR>annee : $annee - intitule_fonction : $intitule_fonction - intitule_fonction_en_cours : $intitule_fonction_en_cours - intitule_pour_requete : $intitule_pour_requete - rne_a_inclure : $rne_a_inclure<br>";
+					//echo "<br>� rechercher : $rechercher - dans : $dans<br>";
+					if ($rechercher <>"")
+					{
+						//echo "<br>boucle rechercher oui<br>";
+						switch ($dans)
+						{
+							case "T" :
+								$query = "SELECT DISTINCT * FROM personnes_ressources_tice, fonctions_des_personnes_ressources WHERE personnes_ressources_tice.id_pers_ress=fonctions_des_personnes_ressources.id_pers_ress AND codetab LIKE '".$rne_a_inclure."%' AND fonctions_des_personnes_ressources.fonction LIKE '".$intitule_pour_requete."' AND fonctions_des_personnes_ressources.annee = '".$annee."' AND nom LIKE '%$rechercher%' OR personnes_ressources_tice.id_pers_ress=fonctions_des_personnes_ressources.id_pers_ress AND codetab LIKE '".$rne_a_inclure."%' AND fonctions_des_personnes_ressources.fonction LIKE '".$intitule_pour_requete."' AND fonctions_des_personnes_ressources.annee = '".$annee."' AND discipline LIKE '%$rechercher%' OR personnes_ressources_tice.id_pers_ress=fonctions_des_personnes_ressources.id_pers_ress AND codetab LIKE '".$rne_a_inclure."%' AND fonctions_des_personnes_ressources.fonction LIKE '".$intitule_pour_requete."' AND fonctions_des_personnes_ressources.annee = '".$annee."' AND poste LIKE '%$rechercher%' OR personnes_ressources_tice.id_pers_ress=fonctions_des_personnes_ressources.id_pers_ress AND codetab LIKE '".$rne_a_inclure."%' AND fonctions_des_personnes_ressources.fonction LIKE '".$intitule_pour_requete."' AND fonctions_des_personnes_ressources.annee = '".$annee."' AND codetab LIKE '%$rechercher%' ORDER BY personnes_ressources_tice.nom, personnes_ressources_tice.prenom ASC;";
+							break;
+
+							case "N" :
+								$query = "SELECT DISTINCT * FROM personnes_ressources_tice, fonctions_des_personnes_ressources WHERE personnes_ressources_tice.id_pers_ress=fonctions_des_personnes_ressources.id_pers_ress AND codetab LIKE '".$rne_a_inclure."%' AND fonctions_des_personnes_ressources.fonction LIKE '".$intitule_pour_requete."' AND fonctions_des_personnes_ressources.annee = '".$annee."' AND nom LIKE '%$rechercher%' ORDER BY personnes_ressources_tice.nom, personnes_ressources_tice.prenom ASC;";
+							break;
+
+							case "D" :
+								$query = "SELECT DISTINCT * FROM personnes_ressources_tice, fonctions_des_personnes_ressources WHERE personnes_ressources_tice.id_pers_ress=fonctions_des_personnes_ressources.id_pers_ress AND codetab LIKE '".$rne_a_inclure."%' AND fonctions_des_personnes_ressources.fonction LIKE '".$intitule_pour_requete."' AND fonctions_des_personnes_ressources.annee = '".$annee."' AND discipline LIKE '%$rechercher%' ORDER BY personnes_ressources_tice.nom, personnes_ressources_tice.prenom ASC;";
+							break;
+
+							case "P" :
+								$query = "SELECT DISTINCT * FROM personnes_ressources_tice, fonctions_des_personnes_ressources WHERE personnes_ressources_tice.id_pers_ress=fonctions_des_personnes_ressources.id_pers_ress AND codetab LIKE '".$rne_a_inclure."%' AND fonctions_des_personnes_ressources.fonction LIKE '".$intitule_pour_requete."' AND fonctions_des_personnes_ressources.annee = '".$annee."' AND poste LIKE '%$rechercher%' ORDER BY personnes_ressources_tice.nom, personnes_ressources_tice.prenom ASC;";
+							break;
+
+							case "RNE" :
+								$query = "SELECT DISTINCT * FROM personnes_ressources_tice, fonctions_des_personnes_ressources WHERE personnes_ressources_tice.id_pers_ress=fonctions_des_personnes_ressources.id_pers_ress AND codetab LIKE '".$rne_a_inclure."%' AND fonctions_des_personnes_ressources.fonction LIKE '".$intitule_pour_requete."' AND fonctions_des_personnes_ressources.annee = '".$annee."' AND codetab LIKE '%$rechercher%' ORDER BY personnes_ressources_tice.nom, personnes_ressources_tice.prenom ASC;";
+							break;
+						}
+					}
+					else
+					{
+						//echo "<br>boucle else<br>";
+						switch ($tri)
+						{
+							case "ID" :
+								$query = "SELECT DISTINCT * FROM personnes_ressources_tice, fonctions_des_personnes_ressources WHERE personnes_ressources_tice.id_pers_ress=fonctions_des_personnes_ressources.id_pers_ress AND codetab LIKE '".$rne_a_inclure."%' AND fonctions_des_personnes_ressources.fonction LIKE '".$intitule_pour_requete."' AND fonctions_des_personnes_ressources.annee = '".$annee_en_cours."' ORDER BY personnes_ressources_tice.id_pers_ress $sense_tri;";
+							break;
+
+							case "NOM" :
+								$query = "SELECT DISTINCT * FROM personnes_ressources_tice, fonctions_des_personnes_ressources WHERE personnes_ressources_tice.id_pers_ress=fonctions_des_personnes_ressources.id_pers_ress AND codetab LIKE '".$rne_a_inclure."%' AND fonctions_des_personnes_ressources.fonction LIKE '".$intitule_pour_requete."' AND fonctions_des_personnes_ressources.annee = '".$annee_en_cours."' ORDER BY personnes_ressources_tice.nom $sense_tri, prenom ASC;";
+							break;
+
+							case "RNE" :
+								$query = "SELECT DISTINCT * FROM personnes_ressources_tice, fonctions_des_personnes_ressources WHERE personnes_ressources_tice.id_pers_ress=fonctions_des_personnes_ressources.id_pers_ress AND codetab LIKE '".$rne_a_inclure."%' AND fonctions_des_personnes_ressources.fonction LIKE '".$intitule_pour_requete."' AND fonctions_des_personnes_ressources.annee = '".$annee_en_cours."' ORDER BY personnes_ressources_tice.codetab $sense_tri;";
+							break;
+
+							case "DISC" :
+								$query = "SELECT DISTINCT * FROM personnes_ressources_tice, fonctions_des_personnes_ressources WHERE personnes_ressources_tice.id_pers_ress=fonctions_des_personnes_ressources.id_pers_ress AND codetab LIKE '".$rne_a_inclure."%' AND fonctions_des_personnes_ressources.fonction LIKE '".$intitule_pour_requete."' AND fonctions_des_personnes_ressources.annee = '".$annee_en_cours."' ORDER BY personnes_ressources_tice.discipline $sense_tri;";
+							break;
+
+							case "POSTE" :
+								$query = "SELECT DISTINCT * FROM personnes_ressources_tice, fonctions_des_personnes_ressources WHERE personnes_ressources_tice.id_pers_ress=fonctions_des_personnes_ressources.id_pers_ress AND codetab LIKE '".$rne_a_inclure."%' AND fonctions_des_personnes_ressources.fonction LIKE '".$intitule_pour_requete."' AND fonctions_des_personnes_ressources.annee = '".$annee_en_cours."' ORDER BY personnes_ressources_tice.poste $sense_tri;";
+							break;
+
+							default :
+								$query = "SELECT DISTINCT * FROM personnes_ressources_tice, fonctions_des_personnes_ressources WHERE personnes_ressources_tice.id_pers_ress=fonctions_des_personnes_ressources.id_pers_ress AND codetab LIKE '".$rne_a_inclure."%' AND fonctions_des_personnes_ressources.fonction LIKE '".$intitule_pour_requete."' AND fonctions_des_personnes_ressources.annee = '".$annee."' ORDER BY personnes_ressources_tice.nom, personnes_ressources_tice.prenom ASC;";
+							break;
+						} // Fin switch tri
+
+						//$query = "SELECT * FROM personnes_ressources_tice, fonctions_des_personnes_ressources WHERE personnes_ressources_tice.id_pers_ress=fonctions_des_personnes_ressources.id_pers_ress AND intitule_fonction LIKE '".$intitule_pour_requete."' ORDER BY nom, prenom ASC;";
+
+					} //Fin else rechercher <>""
+					$results = mysql_query($query);
+					if(!$results)
+					{
+						echo "<FONT COLOR = \"#808080\"><B>Probl&egrave;me lors de la connexion &agrave; la base de donn&eacute;es</B></FONT>";
+						echo "<BR><BR><A HREF = \"body.php\" class = \"bouton\" target = \"body\">Retour &agrave; l'accueil</A>";
+						mysql_close();
+						exit;
+					}
+
+					//echo "<h3>".$liste_a_afficher." "." ".$secteur_a_afficher." ".$affiche_departement."</h3>";
+					//Retourne le nombre de ligne rendu par la requ�te
+					$num_results = mysql_num_rows($results);
+
+					if(!$results)
+					{
+						echo "<FONT COLOR = \"#808080\"><B>Probl&egrave;me lors de la connexion &agrave; la base de donn&eacute;es</B></FONT>";
+						echo "<BR><BR><A HREF = \"body.php\" class = \"bouton\" target = \"body\">Retour &agrave; l'accueil</A>";
+						mysql_close();
+						exit;
+					}
+
+					//Retourne le nombre de ligne rendu par la requ�te
+					$num_results = mysql_num_rows($results);
+					if ($num_results >0)
+					{	
+						//Affichage de l'ent�te du tableau
+						echo "<h2>Nombre d'enregistrements s&eacute;lectionn&eacute;s : $num_results</h2>";
+						echo "
+						<TABLE BORDER=\"0\" ALIGN=\"CENTER\" BGCOLOR = \"#48D1CC\">
+							<TR>
+								<TD align=\"center\">";
+								if ($sense_tri =="asc")
+								{
+									echo "ID<A href=\"personnes_ressources_gestion.php?tri=ID&amp;sense_tri=desc&amp;indice=0\" target=\"body\"  title=\"Trier par N&ordm; de soci&eacute;t&eacute;, ordre decroissant\"><img src=\"../image/s_desc.png\" border=\"0\"></A>";
+								}
+								else
+								{
+									echo "ID<A href=\"personnes_ressources_gestion.php?tri=ID&amp;sense_tri=asc&amp;indice=0\" target=\"body\"  title=\"Trier par N&ordm; de soci&eacute;t&eacute;, ordre croissant\"><img src=\"../image/s_asc.png\" border=\"0\"></A>";
+								}
+								echo "</TD>
+								<TD align=\"center\">
+									CIVIL
+								</TD>
+								<TD align=\"center\">";
+								if ($sense_tri =="asc")
+								{
+									echo "NOM<A href=\"personnes_ressources_gestion.php?tri=NOM&amp;sense_tri=desc&amp;indice=0\" target=\"body\"  title=\"Trier par nom, ordre decroissant\"><img src=\"../image/s_desc.png\" border=\"0\"></A>";
+								}
+								else
+								{
+									echo "NOM<A href=\"personnes_ressources_gestion.php?tri=NOM&amp;sense_tri=asc&amp;indice=0\" target=\"body\"  title=\"Trier par nom, ordre croissant\"><img src=\"../image/s_asc.png\" border=\"0\"></A>";
+								}
+								echo "</TD>
+								<TD align=\"center\">
+										PRENOM
+								</TD>
+								<TD align=\"center\">";
+								if ($sense_tri =="asc")
+								{
+									echo "CODETAB<A href=\"personnes_ressources_gestion.php?tri=RNE&amp;sense_tri=desc&amp;indice=0\" target=\"body\"  title=\"Trier par nom, ordre decroissant\"><img src=\"../image/s_desc.png\" border=\"0\"></A>";
+								}
+								else
+								{
+									echo "CODETAB<A href=\"personnes_ressources_gestion.php?tri=RNE&amp;sense_tri=asc&amp;indice=0\" target=\"body\"  title=\"Trier par nom, ordre croissant\"><img src=\"../image/s_asc.png\" border=\"0\"></A>";
+								}
+								echo "</TD>
+								<TD align=\"center\">";
+								if ($sense_tri =="asc")
+								{
+									echo "DISCIPLINE<A href=\"personnes_ressources_gestion.php?tri=DISC&amp;sense_tri=desc&amp;indice=0\" target=\"body\"  title=\"Trier par nom, ordre decroissant\"><img src=\"../image/s_desc.png\" border=\"0\"></A>";
+								}
+								else
+								{
+									echo "DISCIPLINE<A href=\"personnes_ressources_gestion.php?tri=DISC&amp;sense_tri=asc&amp;indice=0\" target=\"body\"  title=\"Trier par nom, ordre croissant\"><img src=\"../image/s_asc.png\" border=\"0\"></A>";
+								}
+								echo "</TD>
+								<TD align=\"center\">";
+								if ($sense_tri =="asc")
+								{
+									echo "POSTE<A href=\"personnes_ressources_gestion.php?tri=POSTE&amp;sense_tri=desc&amp;indice=0\" target=\"body\"  title=\"Trier par nom, ordre decroissant\"><img src=\"../image/s_desc.png\" border=\"0\"></A>";
+								}
+								else
+								{
+									echo "POSTE<A href=\"personnes_ressources_gestion.php?tri=POSTE&amp;sense_tri=asc&amp;indice=0\" target=\"body\"  title=\"Trier par nom, ordre croissant\"><img src=\"../image/s_asc.png\" border=\"0\"></A>";
+								}
+								echo "</TD>
+								<TD align=\"center\">
+									domaine ressource
+								</TD>
+								<TD align=\"center\">
+										MEL
+								</TD>";
+								if (($_SESSION['droit'] == "Super Administrateur") OR ($_SESSION[autorisation_hsa] == "O"))
+								{
+									echo "<TD align=\"center\">
+										ACTIONS
+									</TD>";
+								}
+								//Requ�te pour afficher les personnes ressources selon le filtre appliqu�
+
+								///////////////////////////////////
+								//Partie sur la gestion des pages//
+								///////////////////////////////////
+								$nombre_de_page = number_format($num_results/$nb_par_page,1);
+								$par_navig = "0";
+/*
+								echo "<br>Nombre de pages : $nombre_de_page";
+								echo "<br>Nb_par_page : $nb_par_page<br>";
+*/	
+								echo "<FONT COLOR = \"#808080\"><B>Page&nbsp;</B></FONT>";
+								If ($indice == 0)
+								{
+									echo "<FONT COLOR = \"#000000\"><B><big>1</big>&nbsp;</B></FONT>";
+								}
+								else
+								{
+									echo "<A HREF = \"personnes_ressources_gestion.php?tri=$tri&amp;rechercher=$rechercher&amp;dans=$dans&amp;indice=0\" target=\"body\" class=\"bouton\">1&nbsp;</A>";
+								}
+								//echo "<BR>indice : $indice<br>";
+								for($j = 1; $j<$nombre_de_page; ++$j)
+								{
+									$nb = $j * $nb_par_page;
+									$page = $j + 1;
+									$par_navig++;
+									if($par_navig=="41")
+								{
+								echo "<BR>";
+								$par_navig=0;
+								}
+								if ($page * $nb_par_page == $indice + $nb_par_page)
+								{
+									echo "<FONT COLOR = \"#000000\"><B><big>".$page."&nbsp;</big></B></FONT>";
+								}
+								else
+								{
+									echo "<A HREF = \"personnes_ressources_gestion.php?tri=$tri&amp;rechercher=$rechercher&amp;dans=$dans&amp;indice=".$nb."\" target=\"body\" class=\"bouton\">".$page."&nbsp;</A>";
+								}
+							}
+							$j = 0;
+							while($j<$indice) //on se potionne sur la bonne page suivant la valeur de l'index
+							{
+								$res = mysql_fetch_row($results);
+								++$j;
+							}
+							/////////////////////////
+							//Fin gestion des pages//
+							/////////////////////////
+
+							//Traitement de chaque ligne
+							$res = mysql_fetch_row($results);
+							if ($nombre_de_page)
+							for ($i = 0; $i < $nb_par_page; ++$i)
+							{
+								if ($res[0] <>"")
+								{
+									$mel = $res[9]."@ac-orleans-tours.fr";
+									echo "<TR class = \"new\">";
+										echo "<TD align = \"center\">";
+											echo $res[0];
+										echo "</TD>";
+										echo "<TD align = \"center\">";
+											echo $res[1];
+										echo "</TD>";
+										echo "<TD>";
+											echo $res[2];
+										echo "</TD>";
+										echo "<TD>";
+											echo $res[3];
+										echo "</TD>";
+										echo "<TD>";
+											echo "$res[4]";
+										echo "</TD>";
+										echo "<TD align=\"center\">";
+											echo "$res[6]";
+										echo "</TD>";
+										echo "<TD align=\"center\">";
+											echo "$res[8]";
+										echo "</TD>";
+										echo "<TD>";
+											echo $res[13];
+										echo "</TD>";
+										echo "<TD>";
+											echo "<a href=\"mailto:".$mel."?cc=".$_SESSION['mail']."\">$mel</a>";
+										echo "</TD>";
+									//Les actions
+									if (($_SESSION['droit'] == "Super Administrateur") OR ($_SESSION[autorisation_hsa] == "O"))
+									{
+										echo "<TD BGCOLOR = \"#48D1CC\">";
+											//echo "<A HREF = \"personnes_ressources_consult_fiche.php?origine_ajout=$origine_ajout&amp;CHGMT=N&amp;id_societe=".$res[0]."&amp;action=affichage&amp;affiche_FGMM=N\" target = \"body\"><IMG SRC = \"../image/info.gif\" ALT = \"consulter/traiter\" title=\"Consulter la fiche\"></A>";
+											//echo "<A HREF = \"personnes_ressources_consult_fiche.php?origine_ajout=$origine_ajout&amp;CHGMT=N&amp;id_societe=".$res[0]."&amp;action=modif&amp;affiche_FGMM=N\" target = \"body\"><IMG SRC = \"../image/modifier.png\" ALT = \"Modifier\" title=\"Modifier la fiche\"></A>";
+											//echo "<A HREF = \"personnes_ressources_ajout_ticket.php?origine_ajout=repertoire&amp;id_societe=".$res[0]."\" TARGET = \"body\" title=\"Ajouter un ticket\"><IMG SRC = \"../image/ajout_ticket.png\" ALT = \"Ajouter un ticket\" height=\"24px\" width=\"24px\"></A>";
+											//echo "<A HREF = \"personnes_ressources_suppression_fiche.php?origine_ajout=$origine_ajout&amp;id_societe=".$res[0]."\" TARGET = \"body\"><IMG SRC = \"../image/supprimer.png\" ALT = \"supprimer\" height=\"24px\" width=\"24px\"></A>";
+										echo "</TD>";	
+									}
+									echo "</TR>";
+								} //Fin if res[0]<>""
+								$res = mysql_fetch_row($results);
+							} //Fin boucle for
+							//Fermeture de la connexion � la BDD
+							mysql_close();
+					} //Fin num-results >0
+					else
+					{
+						echo "<h2> Recherche infructueuse, modifez les param&egrave;tres&nbsp;!</h2>";
+					}
+				} //Fin if affichage <> "N"
+	?>
+			</TABLE>
+		</CENTER>
+	</body>
+</html>

@@ -1,0 +1,202 @@
+/* Feuille de Style site Innovation - mise à jour : 20-01-12 pour l'édition 2012*/
+.fond_cadre{background: #d3d3d3;color: #4A0808; padding: 0px; margin-left: 0px;}
+
+#logo_acad
+{
+	position:absolute;
+	left: 50%; 
+	margin-left: -55px; /* moitié de la largeur de l'image */
+}
+
+fond_etiquette_tableau
+{
+	background: #d3d3d3;
+	color: #4A0808; 
+	padding: 3px;
+	text-align : right;  
+}
+
+mev_orange
+{
+	background: #F8F7F7;
+	color: #EA9F32; 
+	font-weight: bold; 
+}
+
+body
+	{
+	background-color: #d3d4d6;
+	color: #black;
+	font-family: arial, helvetica, Verdana;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+	font-size: 10pt;
+}
+
+a.menu:link
+	{
+	text-decoration: none;
+	color: ##D0008B;
+}
+
+a.menu:visited
+	{text-decoration:none;
+	color:#ECF5FF;}
+
+a.menu:hover
+	{text-decoration:underline;
+	color:#FF0000;}
+
+a.menu:active
+	{text-decoration:none;
+	color:##D0008B;}
+
+a:link
+	{
+	text-decoration: underline;
+	color: ##D0008B;
+}
+
+a:visited
+	{
+	text-decoration: underline;
+	color: ##D0008B;
+}
+
+a:hover
+	{
+	text-decoration: underline;
+	color: #333399;
+}
+
+a:active
+	{
+	text-decoration: underline;
+	color: #ACA3E2;
+}
+
+
+h1
+
+	{
+	font-size: 140%;
+	font-weight: bold;
+}
+
+h2
+
+	{
+	font-size: 120%;
+	font-weight: bold;
+}
+h3
+
+	{
+	font-size: 75%;
+	font-weight: bold;
+}
+
+img
+
+    {border-width:0;}
+table{
+	font-weight: bolder;
+	font-size: 140%;
+}
+th{
+	//font-weight: bold;
+	font-size: 11pt;
+	background : #CC6633;
+	padding: 5px 2px 2px 5px;
+	text-align: center;
+	color: white;
+}
+td{
+	
+	font-size: 10pt;
+	
+}
+/*------------------------------------------------------------------------------------*/
+/*Info bulle générale*/
+a.info_bulle span.info_bulle
+{								   
+  display          : none; /* Rend invisible tout notre bloc span */
+} 
+ 
+a.info_bulle
+{				
+  color           : #2F368A;
+  
+  text-decoration : none; 
+  
+  padding         : 2px 16px 2px 2px; /*Définition des marges intérieures de notre lien */
+  
+  /* Définition de l'arrière plan de notre lien */
+  background      : transparent url('../../images/info_petit.png') no-repeat right center;
+  position        : relative; /* Indispensable pour le bon positionnement de l'info-bulle */ 
+}  
+ 
+a.info_bulle:hover 
+{
+  border          : 0;  /* ligne qui corrige le bug d'IE6 et inférieur */
+} 
+
+a.info_bulle:hover span.info_bulle
+{				
+  display        :  block;    /* Rend visible notre bloc span */
+  position       :  absolute; /* Sort notre bloc de son conteneur afin de le positionner */
+  
+  font-size      : 12px;
+  
+  width          : 400px;     /* On fixe une largeur par défaut */
+  
+  color          : #000;      /* Réinitialisation de la couleur du texte */
+  
+  text-align     : justify;   /* Justification du texte */	
+  
+  cursor         : default;   /* Réinitialisation de notre curseur, sinon par défaut on a le même que notre lien */
+  
+  /* Positionnement de notre info-bulle */
+  top            : 3.0em;     
+  left           : -100px;
+  
+  z-index        : 1000; /* Positionne au premier plan l'info-bulle en cas de chevauchement */
+}  
+
+span.header
+{
+   display         : block; 
+   height          : 35px;  /* Hauteur correspondant à celle de notre image */
+   line-height     : 220%;  /* Propriété qui centrera le texte verticalement */
+   text-align      : center;
+   /*background      : transparent url('./top.gif') no-repeat 0 0;*/ 
+   background     : #FFFFFF;   /* DDEEFFDéfinition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* Définition des bordures */
+   padding        : 6px;       /* Définition des marges intérieures */	  
+   font-size       : 15px; 
+   font-weight     : bold;
+} 
+
+span.content
+{
+   display     : block; 
+   /*background  : transparent url('./centre.gif') repeat-y;*/
+   background     : #FFFFFF;   /* DDEEFFDéfinition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* Définition des bordures */
+   padding        : 12px;       /* Définition des marges intérieures */	  
+   font-size       : 15px; 
+   /*padding     : 0 8px;*/
+} 
+
+span.footer
+{
+   display     : block; 
+   height      : 5px; 
+   /*background  : url('./bot.gif') no-repeat bottom left;*/ 
+   background     : #DDEEFF;   /* Définition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* Définition des bordures */
+   padding        : 6px;       /* Définition des marges intérieures */	  
+   font-size   : 0; /* Corrige l'espacement inutile sous IE */
+}         
+

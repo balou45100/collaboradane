@@ -1,0 +1,462 @@
+<style type="text/css">
+
+.new{background: #A4EFCA;color: #005F31;}
+.modif{background: #B3CEEF;color: #00336F;}
+.reponse{background: #FFBFFE;color: #6F006F;}
+.archi{background: #FF9FA3;color: #FF0F1E;}
+.verrou{background: #FF0000;color: #FFFFFF;}
+
+.user{background: #87CEFA;color: #00336F;}
+.admin{background: #00FA9A;color: #00336F;}
+
+.intertitre{background: #FFFF99; color: #00336F;}
+
+.entete_tableau{background: #48D1CC;color: #000000;font-size: 1.1em;}
+.fond_tableau{background: #A4EFCA;color: #000;}
+.fond_etiquette_tableau{background: #d3d3d3;color: #4A0808; padding: 3px;}
+.fond_saisie_tableau{background: #f8f7f7;color: #4A0808; padding: 3px;}
+
+.camaieu{background: #000000;color: #4A0808; font-weight: bold; text-decoration: none;}
+
+.head {
+background: #FFFF99;
+color: #808080;
+border-style:outset; 
+border-width:1px;
+}
+
+.head-filter {
+background: #005F31;
+color: #808080;
+border-style:outset; 
+border-width:1px;
+}
+
+.cher{background: #AFEEEE;color: #00336F;}
+.eure_loire{background: #20B2AA;color: #00336F;}
+.indre{background: #87CEFA;color: #00336F;}
+.indre_loire{background: #05FA92;color: #00336F;}
+.loire_cher{background: #039EFC;color: #00336F;}
+.loiret{background: #7FFFD4;color: #00336F;}
+
+h1 {
+/*background: #AFEEEE;*/
+color: #00336F;
+}
+
+h2 {
+/*background: #AFEEEE;*/
+color: #00336F;
+text-align: center;
+}
+
+h4 {
+/*background: #AFEEEE;*/
+color: #00336F;
+}
+/*//////////////////////////////
+/// Gestion des tableaux////////
+////////////////////////////////*/
+
+/* tableau en général */
+table {
+border-style:outset; 
+border-width:0px;
+}
+
+td { 
+border-style:outset; 
+border-width:1px;
+}
+
+.td-1 {
+border-style:solid; 
+border-width:0px;
+}
+
+/*//////////////////////////////
+/// Gestion des liens////////
+////////////////////////////////*/
+
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none;}
+
+a.bouton{
+text-decoration:none;
+text-align:center; 
+font-weight:bold;
+color: #808080;
+}
+
+.td-bouton{
+text-decoration:none;
+text-align:left; 
+font-weight:bold;
+color: #808080;
+border-style:solid; 
+border-width:0px;
+}
+
+.td-bouton-2{
+text-decoration:none;
+text-align:left; 
+font-weight:bold;
+color: #808080;
+border-style:none; 
+border-width:0px;
+}
+
+p
+{
+  font-size       : 1.1em; /* Définition de la taille de la police de nos paragraphes */
+}
+/*------------------------------------------------------------------------------------*/
+/*Info bulle générale*/
+a.info_bulle span.info_bulle
+{								   
+  display          : none; /* Rend invisible tout notre bloc span */
+} 
+ 
+a.info_bulle
+{				
+  color           : #2F368A;
+  
+  text-decoration : none; 
+  
+  padding         : 2px 16px 2px 2px; /*Définition des marges intérieures de notre lien */
+  
+  /* Définition de l'arrière plan de notre lien */
+  background      : transparent url('../image/info_petit.png') no-repeat right center;
+  position        : relative; /* Indispensable pour le bon positionnement de l'info-bulle */ 
+}  
+ 
+a.info_bulle:hover 
+{
+  border          : 0;  /* ligne qui corrige le bug d'IE6 et inférieur */
+} 
+
+a.info_bulle:hover span.info_bulle
+{				
+  display        :  block;    /* Rend visible notre bloc span */
+  position       :  absolute; /* Sort notre bloc de son conteneur afin de le positionner */
+  
+  font-size      : 12px;
+  
+  width          : 220px;     /* On fixe une largeur par défaut */
+  
+  color          : #000;      /* Réinitialisation de la couleur du texte */
+  
+  text-align     : justify;   /* Justification du texte */	
+  
+  cursor         : default;   /* Réinitialisation de notre curseur, sinon par défaut on a le même que notre lien */
+  
+  /* Positionnement de notre info-bulle */
+  top            : 1.8em;     
+  left           : 1px;
+  
+  z-index        : 1000; /* Positionne au premier plan l'info-bulle en cas de chevauchement */
+}  
+
+span.header
+{
+   display         : block; 
+   height          : 35px;  /* Hauteur correspondant à celle de notre image */
+   line-height     : 220%;  /* Propriété qui centrera le texte verticalement */
+   text-align      : center;
+   /*background      : transparent url('./top.gif') no-repeat 0 0;*/ 
+   background     : #FFFFFF;   /* DDEEFFDéfinition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* Définition des bordures */
+   padding        : 6px;       /* Définition des marges intérieures */	  
+   font-size       : 15px; 
+   font-weight     : bold;
+} 
+
+span.content
+{
+   display     : block; 
+   /*background  : transparent url('./centre.gif') repeat-y;*/
+   background     : #FFFFFF;   /* DDEEFFDéfinition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* Définition des bordures */
+   padding        : 12px;       /* Définition des marges intérieures */	  
+   font-size       : 15px; 
+   /*padding     : 0 8px;*/
+} 
+
+span.footer
+{
+   display     : block; 
+   height      : 5px; 
+   /*background  : url('./bot.gif') no-repeat bottom left;*/ 
+   background     : #DDEEFF;   /* Définition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* Définition des bordures */
+   padding        : 6px;       /* Définition des marges intérieures */	  
+   font-size   : 0; /* Corrige l'espacement inutile sous IE */
+}         
+/*------------------------------------------------------------------------------------*/
+/*Info bulle RNE / N° société*/
+a.info_bulle_2 span.info_bulle_2
+{								   
+  display          : none; /* Rend invisible tout notre bloc span */
+} 
+ 
+a.info_bulle_2
+{				
+  color           : #2F368A;
+  
+  text-decoration : none; 
+  
+  padding         : 2px 16px 2px 2px; /*Définition des marges intérieures de notre lien */
+  
+  /* Définition de l'arrière plan de notre lien */
+  background      : transparent url('../image/info_petit.png') no-repeat right center;
+  position        : relative; /* Indispensable pour le bon positionnement de l'info-bulle */ 
+}  
+ 
+a.info_bulle_2:hover 
+{
+  border          : 0;  /* ligne qui corrige le bug d'IE6 et inférieur */
+} 
+
+a.info_bulle_2:hover span.info_bulle_2
+{				
+  display        :  block;    /* Rend visible notre bloc span */
+  position       :  absolute; /* Sort notre bloc de son conteneur afin de le positionner */
+  
+  font-size      : 12px;
+  
+  width          : 400px;     /* On fixe une largeur par défaut */
+  
+  color          : #000;      /* Réinitialisation de la couleur du texte */
+  
+  text-align     : justify;   /* Justification du texte */	
+  
+  cursor         : default;   /* Réinitialisation de notre curseur, sinon par défaut on a le même que notre lien */
+  
+  /* Positionnement de notre info-bulle */
+  top            : 1.8em;     
+  left           : 1px;
+  
+  z-index        : 1000; /* Positionne au premier plan l'info-bulle en cas de chevauchement */
+}  
+
+span.header_2
+{
+   display         : block; 
+   height          : 35px;  /* Hauteur correspondant à celle de notre image */
+   line-height     : 220%;  /* Propriété qui centrera le texte verticalement */
+   text-align      : center;
+   /*background      : transparent url('./top.gif') no-repeat 0 0;*/ 
+   background     : #FFFFFF;   /* DDEEFFDéfinition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* Définition des bordures */
+   padding        : 6px;       /* Définition des marges intérieures */	  
+   font-size       : 15px; 
+   font-weight     : bold;
+} 
+
+span.content_2
+{
+   display     : block; 
+   /*background  : transparent url('./centre.gif') repeat-y;*/
+   background     : #FFFFFF;   /* DDEEFFDéfinition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* Définition des bordures */
+   padding        : 12px;       /* Définition des marges intérieures */	  
+   font-size       : 15px; 
+   /*padding     : 0 8px;*/
+} 
+
+span.footer_2
+{
+   display     : block; 
+   height      : 5px; 
+   /*background  : url('./bot.gif') no-repeat bottom left;*/ 
+   background     : #DDEEFF;   /* Définition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* Définition des bordures */
+   padding        : 6px;       /* Définition des marges intérieures */	  
+   font-size   : 0; /* Corrige l'espacement inutile sous IE */
+}         
+
+/*-----------------------------------------------------------------------------------*/
+/*Permet de personnaliser les boites de sélection*/
+select {
+  /*font-family : Courier ;*/
+  /*font-size : 10px ;*/
+  /*width : 200px ;*/
+}
+
+/* élément de couleur bleu */
+option.bleu {
+  color : #0000FF ;
+  background-color : #00CCFF ;
+}
+
+/* élément de couleur violet */
+option.violet {
+  color : #9900FF ;
+  background-color : #99CCFF ;
+}
+
+/*Permet de mettre en forme un formulaire de saisie*/
+#monForm
+{
+	width: 60%;
+}
+
+#monForm p
+{
+	margin: 2px 0;
+}
+
+/* fieldset , legend */
+#monForm fieldset
+{
+	margin-bottom: 10px;
+	border: #CCC 1px solid;
+}
+
+#monForm fieldset:hover
+{
+	background-color: #FFF;
+}
+
+#monForm fieldset legend
+{
+	padding: 0 10px;
+	border-left: #CCC 1px solid;
+	border-right: #CCC 1px solid;
+	font-size: 1.2em;
+	color: #777;
+}
+
+
+/* Label */
+#monForm label
+{
+	background-color: #ffff99;
+	display: block;
+	width: 39%;
+	float: left;
+	padding-right: 1%;
+	text-align: right;
+	letter-spacing: 1px;
+}
+
+#monForm label:hover
+{
+	font-weight: bold;
+}
+
+#monForm .form_label_nostyle
+{
+	background: none;
+}
+
+#monForm A
+{
+	background-color: #ffffff;
+	display: block;
+	margin-left: 1%;
+	width: 61%;
+	padding-left: 0%;
+	text-align: left;
+	letter-spacing: 1px;
+	/*border: #CCC 1px solid;*/
+}
+
+/* Input */
+#monForm input, #monForm select
+{
+	margin-left: 1%;
+	width: 58%;
+	border: #CCC 1px solid;
+}
+
+#monForm input:hover, #monForm select:hover, #monForm input:focus, #monForm select:focus
+{
+	border: #999 1px solid;
+	background-color: #DDEEFF;
+}
+
+#monForm .form_input_day_month
+{
+	width: 3%;
+}
+
+#monForm .form_input_year
+{
+	width: 6%;
+}
+
+
+/* button submit */
+#monForm input[type="submit"]
+{
+	border: #DDEEFF 1px solid;
+	width: 27%;
+}
+
+#monForm input[type="submit"]:hover
+{
+	background-color: #66CC33;
+	cursor: pointer;
+}
+
+#monForm input[type="reset"]
+{
+	border: #DDEEFF 1px solid;
+	width: 27%;
+}
+
+#monForm input[type="reset"]:hover
+{
+	background-color: #E6484D;
+	cursor: pointer;
+}
+
+#monForm table
+{
+	border: 1px;
+	align: center;
+}
+
+#monForm table:th
+{
+	background-color: #ffff99;
+	align: center;
+}
+
+.IconesAvecTexte {
+	padding: 1px;
+	margin:0px; 
+	padding-right: 10px;
+	font-size: 4px;
+	text-align: center;
+}
+
+.MenuModules {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 4px;
+	font-weight: normal;
+	background-color: #FFFF99;
+	padding:	0;
+	border-top: 0px solid black;
+	text-align: right;
+}
+
+a.MenuModules:link, a.MenuModules:visited, a.MenuModules:active {
+	color: #000000;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 4px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+	border: 0;
+	padding: 2px;
+}
+
+a.MenuModules:hover {
+	color: #399EFF;
+	text-decoration: none;
+}
+
+</style>

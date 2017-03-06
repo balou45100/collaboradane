@@ -1,0 +1,112 @@
+<style type="text/css">
+
+
+.gauche
+{
+	border:1px solid; 		/* rajouté */
+	position : absolute;
+	width : 33%;
+	top : 2px;				/* rajouté */
+	bottom : 0px;			/* rajouté */
+ 	left : 2px;				/* rajouté */
+	padding: 10px;
+	overflow : auto;
+	background-color: #FFFFFF;	/* rajouté */
+	
+}
+
+.droite
+{
+	border:1px solid; 		/* rajouté */
+	position : absolute;
+	top : 2px;				/* rajouté */
+	bottom : 0px;			/* rajouté */
+	width : 63%;
+	left : 35%;				/* modifié */
+	overflow : auto;
+	padding:10px;
+	background-color: #FFFFFF;	/* rajouté */
+}
+
+a img
+{
+	border: none;
+} 
+
+a.retour
+{
+	position: absolute;
+	top:60%;
+	left:45%;
+	right:45%;
+	/*font-size:large;*/
+	text-align:center;
+	text-decoration:none;
+	border:0;
+	/*color:green;*/
+}
+
+.important
+{
+	background-color:white;
+	border: 1px solid;
+	position: absolute;
+	top:40%;
+	/*bottom:45%;*/
+	left:30%;
+	right:30%;
+	font-size:x-large;
+	text-align:center;
+	color:red;
+	padding:5px;
+}
+
+.valider
+{
+	background-color:white;
+	border: 1px solid;
+	position: absolute;
+	top:40%;
+	/*bottom:45%;*/
+	left:30%;
+	right:30%;
+	font-size:x-large;
+	text-align:center;
+	color:green;
+	padding:5px;
+}
+
+.titreTableau
+{
+	font-size:large;
+	color:gray;
+}
+
+table 
+{
+	background-color: #7FFFD4;
+	font-family: arial, helvetica, sans-serif;
+	/*font-size: 12px;*/
+    color: #000000;
+	margin: 0;
+}
+
+table th
+{
+	background-color: #48D1CC;
+	font-family: arial, helvetica, sans-serif;
+	/*font-size: 12px;*/
+    color: #000000;
+	margin: 0;
+}
+
+body
+{
+	font-family: arial, helvetica, sans-serif;
+	/*font-size: 12px;*/
+    background-color: #FFFF99;	/* modifié */
+	margin: 0;
+	padding:10px;
+}
+
+</style>

@@ -1,0 +1,685 @@
+/* reset browser styles */
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote {
+ padding: 0;
+ margin: 0;
+ font-size: 100%;
+ font-weight: normal;
+}
+
+.espace_principal {
+	position: absolute;
+	top: 50px;
+	left: 60px;	
+	width: 1000px;
+}
+
+#barre_module_11, #barre_module_12, #barre_module_13, #barre_module_14, #barre_module_21, #barre_module_22, #barre_module_23, #barre_module_24 {
+	position: absolute;
+	top: 0px;
+	left: 2px;
+	width: 20px;
+	height: 700px;	
+}
+
+#barre_module_11 {
+	background-color:#f65d21;
+}
+
+#barre_module_12 {
+	background-color:#c43c08;
+}
+
+#barre_module_13 {
+	background-color:#8a2e09;
+}
+
+#barre_module_14 {
+	background-color:#581a03;
+}
+
+#barre_module_21 {
+	background-color:#f1ab18;
+}
+
+#barre_module_22 {
+	background-color:#cc9723;
+}
+
+#barre_module_23 {
+	background-color:#a68131;
+}
+
+#barre_module_24 {
+	background-color:#7c6635;
+}
+
+#menu_11,#menu_12,#menu_13,#menu_14,#menu_21,#menu_22,#menu_23,#menu_24 {
+	border: 1px solid #CC6633;
+}
+
+#menu_11 {
+	position: absolute;
+	top: 120px;
+	left: 60px;
+	background: #f65d21;
+}
+
+#menu_12 {
+	position: absolute;
+	top: 120px;
+	left: 270px;
+	background: #c43c08;
+}
+
+#menu_13 {
+	position: absolute;
+	top: 120px;
+	left: 480px;
+	background: #8a2e09;
+}
+
+#menu_14 {
+	position: absolute;
+	top: 120px;
+	left: 690px;
+	background: #581a03;
+}
+
+#menu_21 {
+	position: absolute;
+	top: 330px;
+	left: 60px;
+	background: #f1ab18;
+}
+
+#menu_22 {
+	position: absolute;
+	top: 330px;
+	left: 270px;
+	background: #cc9723;
+}
+
+#menu_23 {
+	position: absolute;
+	top: 330px;
+	left: 480px;
+	background: #a68131;
+}
+
+#menu_24 {
+	position: absolute;
+	top: 330px;
+	left: 690px;
+	background: #7c6635;
+}
+
+#menu_barre {
+	position: absolute;
+	top: 10px;
+	right: 50px;
+}
+
+.menu_table {
+	border-collapse: collapse; 
+	border-spacing: 0;
+	margin: 15px 20px 10px 40px;
+	padding: 5px 5px 5px 5px;
+	border: 2px solid #CC6633;
+	//border-left: 4px solid #CC6633;
+	//border-bottom: 4px solid #CC6633;
+	color: #545050;
+	width: 870px;
+	height: 460px
+}
+
+.logo {
+	position : absolute;
+	top: 520px;
+	left: 880px;
+	border: 0;
+}
+
+.fix_dimension_cellule {
+	width:150px;
+	height:150px;
+	overflow:hidden;
+} 
+
+body {
+	background : #FFCC66;
+	color: #545050;
+}
+table {
+	border-collapse: collapse; 
+	border-spacing: 0;
+	margin: 15px 20px 10px 40px;
+	padding: 5px 5px 5px 5px;
+	border: 2px solid #CC6633;
+	//border-left: 4px solid #CC6633;
+	//border-bottom: 4px solid #CC6633;
+	color: #545050;
+	//width: 870px;
+	//height: 460px
+}
+
+th { /* Les entêtes de tableaux*/
+	background : #CC6633;
+	padding: 5px 2px 2px 5px;
+	text-align: center;
+	color: white;
+}
+
+tr {
+	//border-left: 2px solid #CC6633;
+	border-bottom: 1px dotted #CC6633;
+	padding: 2px;
+}
+
+td {
+	border: 1px dotted #CC6633;
+	//border: 1px solid #CC6633;
+	//border-bottom: 2px solid #CC6633;
+	padding: 10px;
+}
+
+h1 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 40px;
+	font-size: 2em;
+	font-family: "Arial Black", Arial, sans-serif;
+	//text-align: center;
+}
+
+h2 {
+	font-size: 1.5em;
+	color: #CC6633;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 40px;
+	//text-align: center;
+	font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.entete_tableau {background: #CC6633;color: #000000;font-size: 1.1em;}*/
+.fond-actions {background: #FF9966;color: #000000;font-size: 1.1em;} /* la couleur du fond de la colonne pour les actions #CC6633*/
+.verrou{background: #FF0000;color: #FFFFFF;}
+
+/* coloration des cellules en fonction des &eacute;tats des tickets*/
+.nouveau {background: #ffffff;}
+.en_cours {background: #00cc33;}
+.transfere {background: #ff0000;}
+.attente {background: #ffff66;}
+.acheve {background: #FF9FA3;}
+
+.priorite_haute {background: #ff0000; text-align: center;}
+.priorite_normale {background: #FFCC66; text-align: center;}
+.priorite_basse {background: #ffff66; text-align: center;}
+.priorite_sans {background: #ffffff; text-align: center;}
+
+/*Pour la gestion de la pagination*/
+.page_courante {font-size: 1.4em; font-weight: bold; color: #545050;}
+.page_a_cliquer {font-size: 1em; font-weight: normal; color: #545050;}
+
+/*Pour la colorisation des lignes en fonction des dates */
+.avant_date {background: #FF9966;}
+
+/*Pour les formulaires d'affichage */
+.etiquette {background : #CC6633; text-align: right; color: white; font-weight: bold;}
+.champ_obligatoire {color: #A52A2A; font-weight: bold;}
+
+/*pour les r&eacute;ponses */
+.reponse {background : #FF9966;}
+
+.menu-boutons { /*pour fixer les menus sous forme d'icônes au-dessus des listes*/
+	background: #FF9966;
+	text-align: center;
+	margin: 5px 5px;
+	color: #545050;
+}
+
+
+#entete-collaboratice {
+	background: #FF9966;
+	text-align: center;
+	padding: 3px;
+}
+
+#entete-collaboratice h2 {
+	font-size: 2em;
+	color: white;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#body_tb {
+	margin: 15px 10px 10px 20px;
+}
+
+legend {
+	color: #CC6633;
+	margin: 0px 0px 0px 15px;
+	font-size: 1.1em;
+}
+
+strong {
+	text-transform: uppercase;
+	background : #CC6633;
+	color: white;
+}
+
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none;}
+
+/*Pour le module favoris*/
+
+#tablefavoris table {
+	border-collapse: collapse; 
+	border-spacing: 0;
+	//border: 2px solid #CC6633;
+	//background-color: #f1f1f1;
+	//background-color: #7FFFD4;
+	font-family: arial, helvetica, sans-serif;
+	//font-size: 12px;
+	font-weight: normal;
+	//color: #000000;
+	color: #00336F;
+
+
+/*
+	border-collapse: collapse; 
+	border-spacing: 0;
+	margin: 15px 10px 10px 20px;
+	padding: 5px 5px 5px 5px;
+	//border-left: 4px solid #CC6633;
+	//border-bottom: 4px solid #CC6633;
+	color: #545050;
+	width: 95%;
+*/
+
+}
+
+#tablefavoris th {
+	background-color: #CC6633;
+	//background-color: #666666;
+	font-size: 1.1em;
+	padding: 2px;
+	font-weight: bold;
+	color: #FFFFFF;
+	//border: 0px;
+	//border-bottom: 1px solid #666666;
+	text-align: left;
+}
+
+#tablefavoris td {
+	padding: 2px;
+    border: 0px;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 1em;
+	font-weight: normal;
+	//color: #000000;
+	color: #00336F;
+}
+
+#tablefavoris tr {
+	padding: 2px;
+    border: 0px;
+}
+
+/* Pour la barre des modules */
+.IconesAvecTexte {
+	padding: 1px;
+	margin:0px; 
+	padding-right: 10px;
+	font-size: 0.8em;
+	text-align: center;
+}
+
+.format-util-connecte {
+	text-align: center;
+	font-size: 0.7em;
+}
+
+.MenuModules {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 0.8em;
+	font-weight: normal;
+	margin:5px; 
+	padding: 0;
+	border: 0;
+	//text-align: right;
+}
+
+a.MenuModules:link, a.MenuModules:visited, a.MenuModules:active {
+	color: #000000;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 4px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+	border: 0;
+	padding: 2px;
+}
+
+a.MenuModules:hover {
+	color: #399EFF;
+	text-decoration: none;
+}
+
+.verrou{background: #FF0000;color: #FFFFFF;}
+
+/*------------------------------------------------------------------------------------*/
+/*Info bulle g&eacute;n&eacute;rale*/
+a.info_bulle span.info_bulle
+{								   
+  display          : none; /* Rend invisible tout notre bloc span */
+} 
+ 
+a.info_bulle
+{				
+  color           : #2F368A;
+  
+  text-decoration : none; 
+  
+  padding         : 2px 16px 2px 2px; /*D&eacute;finition des marges int&eacute;rieures de notre lien */
+  
+  /* D&eacute;finition de l'arri&egrave;re plan de notre lien */
+  background      : transparent url('images/info_petit.png') no-repeat right center;
+  position        : relative; /* Indispensable pour le bon positionnement de l'info-bulle */ 
+}  
+ 
+a.info_bulle:hover 
+{
+  border          : 0;  /* ligne qui corrige le bug d'IE6 et inf&eacute;rieur */
+} 
+
+a.info_bulle:hover span.info_bulle
+{				
+  display        :  block;    /* Rend visible notre bloc span */
+  position       :  absolute; /* Sort notre bloc de son conteneur afin de le positionner */
+  
+  font-size      : 12px;
+  
+  width          : 220px;     /* On fixe une largeur par d&eacute;faut */
+  
+  color          : #000;      /* R&eacute;initialisation de la couleur du texte */
+  
+  text-align     : justify;   /* Justification du texte */	
+  
+  cursor         : default;   /* R&eacute;initialisation de notre curseur, sinon par d&eacute;faut on a le même que notre lien */
+  
+  /* Positionnement de notre info-bulle */
+  top            : 1.8em;     
+  left           : 1px;
+  
+  z-index        : 1000; /* Positionne au premier plan l'info-bulle en cas de chevauchement */
+}  
+
+span.header
+{
+   display         : block; 
+   height          : 35px;  /* Hauteur correspondant &agrave; celle de notre image */
+   line-height     : 220%;  /* Propri&eacute;t&eacute; qui centrera le texte verticalement */
+   text-align      : center;
+   /*background      : transparent url('./top.gif') no-repeat 0 0;*/ 
+   background     : #FFFFFF;   /* DDEEFFD&eacute;finition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* D&eacute;finition des bordures */
+   padding        : 6px;       /* D&eacute;finition des marges int&eacute;rieures */	  
+   font-size       : 15px; 
+   font-weight     : bold;
+} 
+
+span.content
+{
+   display     : block; 
+   /*background  : transparent url('./centre.gif') repeat-y;*/
+   background     : #FFFFFF;   /* DDEEFFD&eacute;finition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* D&eacute;finition des bordures */
+   padding        : 12px;       /* D&eacute;finition des marges int&eacute;rieures */	  
+   font-size       : 15px; 
+   /*padding     : 0 8px;*/
+} 
+
+span.footer
+{
+   display     : block; 
+   height      : 5px; 
+   /*background  : url('./bot.gif') no-repeat bottom left;*/ 
+   background     : #DDEEFF;   /* D&eacute;finition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* D&eacute;finition des bordures */
+   padding        : 6px;       /* D&eacute;finition des marges int&eacute;rieures */	  
+   font-size   : 0; /* Corrige l'espacement inutile sous IE */
+}         
+/*------------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+/*Info bulle RNE / N° soci&eacute;t&eacute;*/
+a.info_bulle_2 span.info_bulle_2
+{   
+  display          : none; /* Rend invisible tout notre bloc span */
+} 
+ 
+a.info_bulle_2
+{				
+  color           : #2F368A;
+  
+  text-decoration : none; 
+  
+  padding         : 2px 16px 2px 2px; /*D&eacute;finition des marges int&eacute;rieures de notre lien */
+  
+  /* D&eacute;finition de l'arri&egrave;re plan de notre lien */
+  background      : transparent url('images/info_petit.png') no-repeat right center;
+  position        : relative; /* Indispensable pour le bon positionnement de l'info-bulle */ 
+}  
+ 
+a.info_bulle_2:hover 
+{
+  border          : 0;  /* ligne qui corrige le bug d'IE6 et inf&eacute;rieur */
+} 
+
+a.info_bulle_2:hover span.info_bulle_2
+{				
+  display        :  block;    /* Rend visible notre bloc span */
+  position       :  absolute; /* Sort notre bloc de son conteneur afin de le positionner */
+  
+  font-size      : 12px;
+  
+  width          : 400px;     /* On fixe une largeur par d&eacute;faut */
+  
+  color          : #000;      /* R&eacute;initialisation de la couleur du texte */
+  
+  text-align     : justify;   /* Justification du texte */	
+  
+  cursor         : default;   /* R&eacute;initialisation de notre curseur, sinon par d&eacute;faut on a le même que notre lien */
+  
+  /* Positionnement de notre info-bulle */
+  top            : 1.8em;     
+  left           : 1px;
+  
+  z-index        : 1000; /* Positionne au premier plan l'info-bulle en cas de chevauchement */
+}  
+
+span.header_2
+{
+   display         : block; 
+   height          : 35px;  /* Hauteur correspondant &agrave; celle de notre image */
+   line-height     : 220%;  /* Propri&eacute;t&eacute; qui centrera le texte verticalement */
+   text-align      : center;
+   /*background      : transparent url('./top.gif') no-repeat 0 0;*/ 
+   background     : #FFFFFF;   /* DDEEFFD&eacute;finition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* D&eacute;finition des bordures */
+   padding        : 6px;       /* D&eacute;finition des marges int&eacute;rieures */	  
+   font-size       : 15px; 
+   font-weight     : bold;
+} 
+
+span.content_2
+{
+   display     : block; 
+   /*background  : transparent url('./centre.gif') repeat-y;*/
+   background     : #FFFFFF;   /* DDEEFFD&eacute;finition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* D&eacute;finition des bordures */
+   padding        : 12px;       /* D&eacute;finition des marges int&eacute;rieures */	  
+   font-size       : 15px; 
+   /*padding     : 0 8px;*/
+} 
+
+span.footer_2
+{
+   display     : block; 
+   height      : 5px; 
+   /*background  : url('./bot.gif') no-repeat bottom left;*/ 
+   background     : #DDEEFF;   /* D&eacute;finition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* D&eacute;finition des bordures */
+   padding        : 6px;       /* D&eacute;finition des marges int&eacute;rieures */	  
+   font-size   : 0; /* Corrige l'espacement inutile sous IE */
+}         
+
+/*-----------------------------------------------------------------------------------*/
+
+/*Permet de mettre en forme un formulaire de saisie*/
+#monForm
+{
+	width: 60%;
+}
+
+#monForm p
+{
+	margin: 2px 0;
+}
+
+/* fieldset , legend */
+#monForm fieldset
+{
+	margin-bottom: 10px;
+	border: #CCC 1px solid;
+}
+
+#monForm fieldset:hover
+{
+	background-color: #FFF;
+}
+
+#monForm fieldset legend
+{
+	padding: 0 5px;
+	border-left: #CCC 1px solid;
+	border-right: #CCC 1px solid;
+	font-size: 1.2em;
+	color: #777;
+}
+
+
+/* Label */
+#monForm label
+{
+	background-color: #ffff99;
+	display: block;
+	width: 39%;
+	float: left;
+	padding-right: 1%;
+	text-align: right;
+	letter-spacing: 1px;
+}
+
+#monForm label:hover
+{
+	font-weight: bold;
+}
+
+#monForm .form_label_nostyle
+{
+	background: none;
+}
+
+#monForm A
+{
+	background-color: #ffffff;
+	display: block;
+	margin-left: 1%;
+	width: 61%;
+	padding-left: 0%;
+	text-align: left;
+	letter-spacing: 1px;
+	/*border: #CCC 1px solid;*/
+}
+
+/* Input */
+#monForm input, #monForm select
+{
+	margin-left: 1%;
+	width: 58%;
+	border: #CCC 1px solid;
+}
+
+#monForm input:hover, #monForm select:hover, #monForm input:focus, #monForm select:focus
+{
+	border: #999 1px solid;
+	background-color: #DDEEFF;
+}
+
+#monForm .form_input_day_month
+{
+	width: 3%;
+}
+
+#monForm .form_input_year
+{
+	width: 6%;
+}
+
+
+/* button submit */
+#monForm input[type="submit"]
+{
+	border: #DDEEFF 1px solid;
+	width: 27%;
+}
+
+#monForm input[type="submit"]:hover
+{
+	background-color: #66CC33;
+	cursor: pointer;
+}
+
+#monForm input[type="reset"]
+{
+	border: #DDEEFF 1px solid;
+	width: 27%;
+}
+
+#monForm input[type="reset"]:hover
+{
+	background-color: #E6484D;
+	cursor: pointer;
+}
+
+#monForm table
+{
+	border: 1px;
+	align: center;
+}
+
+#monForm table:th
+{
+	background-color: #ffff99;
+	align: center;
+}

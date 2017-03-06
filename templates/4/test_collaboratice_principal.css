@@ -1,0 +1,318 @@
+/* reset browser styles */
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote {
+ padding: 0;
+ margin: 0;
+ font-size: 100%;
+ font-weight: normal;
+}
+
+/*.entete_tableau {background: #CC6633;color: #000000;font-size: 1.1em;}*/
+.fond-actions {background: #CC6633;color: #000000;font-size: 1.1em;} /* la couleur du fond de la colonne pour les actions*/
+
+.menu-boutons { /*pour fixer les menus sous forme d'icônes au-dessus des listes*/
+	background: #FF9966;
+	text-align: center;
+	margin: 5px 5px;
+	color: #545050;
+}
+
+.mire-connexion { /*pour fixer la mire de connexion*/
+	//background: #FF9966;
+	text-align: center;
+	margin: 5px 5px;
+	color: #545050;
+	width: 50%;
+	border: 0;
+}
+
+#entete-collaboratice {
+	background: #FF9966;
+	text-align: center;
+	padding: 3px;
+}
+
+#entete-collaboratice h2 {
+	font-size: 2em;
+	color: white;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#body_tb {
+	margin: 15px 10px 10px 20px;
+}
+
+.logo {
+	position : absolute;
+	top: 6px;
+	left: 5px;
+	border: 0;
+}
+
+body {
+	//background : #FFCC66;
+}
+table {
+	border-collapse: collapse; 
+	border-spacing: 0;
+	margin: 15px 10px 10px 20px;
+	padding: 5px 5px 5px 5px;
+	border: 2px solid #CC6633;
+	//border-left: 4px solid #CC6633;
+	//border-bottom: 4px solid #CC6633;
+	color: #545050
+	
+}
+
+th { /* Les entêtes de tableaux*/
+	background : #CC6633;
+	//border: 1px solid red;
+	padding: 5px 2px 2px 5px;
+	text-align: center;
+	color: white;
+}
+
+tr {
+	//border-bottom: 1px solid #CC6633;
+}
+
+h1 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 2.5em;
+	font-family: "Arial Black", Arial, sans-serif;
+}
+
+h2 {
+	font-size: 2em;
+	color: #CC6633;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	text-align: center;
+	font-weight: bold;
+}
+
+legend {
+	color: #CC6633;
+	margin: 0px 0px 0px 15px;
+	font-size: 1.1em;
+}
+
+strong {
+	text-transform: uppercase;
+	background : #CC6633;
+	color: white;
+}
+
+/* Pour la barre des modules */
+.IconesAvecTexte {
+	padding: 1px;
+	margin:0px; 
+	padding-right: 10px;
+	font-size: 0.8em;
+	text-align: center;
+}
+
+.format-util-connecte {
+	text-align: left;
+	font-size: 0.7em;
+}
+
+.MenuModules {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 0.8em;
+	font-weight: normal;
+	margin:5px; 
+	padding: 0;
+	border: 0;
+	//text-align: right;
+}
+
+a.MenuModules:link, a.MenuModules:visited, a.MenuModules:active {
+	color: #000000;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 4px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+	border: 0;
+	padding: 2px;
+}
+
+a.MenuModules:hover {
+	color: #399EFF;
+	text-decoration: none;
+}
+
+.verrou{background: #FF0000;color: #FFFFFF;}
+
+/*------------------------------------------------------------------------------------*/
+/*Info bulle générale*/
+a.info_bulle span.info_bulle
+{								   
+  display          : none; /* Rend invisible tout notre bloc span */
+} 
+ 
+a.info_bulle
+{				
+  color           : #2F368A;
+  
+  text-decoration : none; 
+  
+  padding         : 2px 16px 2px 2px; /*Définition des marges intérieures de notre lien */
+  
+  /* Définition de l'arrière plan de notre lien */
+  background      : transparent url('../image/info_petit.png') no-repeat right center;
+  position        : relative; /* Indispensable pour le bon positionnement de l'info-bulle */ 
+}  
+ 
+a.info_bulle:hover 
+{
+  border          : 0;  /* ligne qui corrige le bug d'IE6 et inférieur */
+} 
+
+a.info_bulle:hover span.info_bulle
+{				
+  display        :  block;    /* Rend visible notre bloc span */
+  position       :  absolute; /* Sort notre bloc de son conteneur afin de le positionner */
+  
+  font-size      : 12px;
+  
+  width          : 220px;     /* On fixe une largeur par défaut */
+  
+  color          : #000;      /* Réinitialisation de la couleur du texte */
+  
+  text-align     : justify;   /* Justification du texte */	
+  
+  cursor         : default;   /* Réinitialisation de notre curseur, sinon par défaut on a le même que notre lien */
+  
+  /* Positionnement de notre info-bulle */
+  top            : 1.8em;     
+  left           : 1px;
+  
+  z-index        : 1000; /* Positionne au premier plan l'info-bulle en cas de chevauchement */
+}  
+
+span.header
+{
+   display         : block; 
+   height          : 35px;  /* Hauteur correspondant à celle de notre image */
+   line-height     : 220%;  /* Propriété qui centrera le texte verticalement */
+   text-align      : center;
+   /*background      : transparent url('./top.gif') no-repeat 0 0;*/ 
+   background     : #FFFFFF;   /* DDEEFFDéfinition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* Définition des bordures */
+   padding        : 6px;       /* Définition des marges intérieures */	  
+   font-size       : 15px; 
+   font-weight     : bold;
+} 
+
+span.content
+{
+   display     : block; 
+   /*background  : transparent url('./centre.gif') repeat-y;*/
+   background     : #FFFFFF;   /* DDEEFFDéfinition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* Définition des bordures */
+   padding        : 12px;       /* Définition des marges intérieures */	  
+   font-size       : 15px; 
+   /*padding     : 0 8px;*/
+} 
+
+span.footer
+{
+   display     : block; 
+   height      : 5px; 
+   /*background  : url('./bot.gif') no-repeat bottom left;*/ 
+   background     : #DDEEFF;   /* Définition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* Définition des bordures */
+   padding        : 6px;       /* Définition des marges intérieures */	  
+   font-size   : 0; /* Corrige l'espacement inutile sous IE */
+}         
+/*------------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+/*Info bulle RNE / N° société*/
+a.info_bulle_2 span.info_bulle_2
+{   
+  display          : none; /* Rend invisible tout notre bloc span */
+} 
+ 
+a.info_bulle_2
+{				
+  color           : #2F368A;
+  
+  text-decoration : none; 
+  
+  padding         : 2px 16px 2px 2px; /*Définition des marges intérieures de notre lien */
+  
+  /* Définition de l'arrière plan de notre lien */
+  background      : transparent url('../image/info_petit.png') no-repeat right center;
+  position        : relative; /* Indispensable pour le bon positionnement de l'info-bulle */ 
+}  
+ 
+a.info_bulle_2:hover 
+{
+  border          : 0;  /* ligne qui corrige le bug d'IE6 et inférieur */
+} 
+
+a.info_bulle_2:hover span.info_bulle_2
+{				
+  display        :  block;    /* Rend visible notre bloc span */
+  position       :  absolute; /* Sort notre bloc de son conteneur afin de le positionner */
+  
+  font-size      : 12px;
+  
+  width          : 400px;     /* On fixe une largeur par défaut */
+  
+  color          : #000;      /* Réinitialisation de la couleur du texte */
+  
+  text-align     : justify;   /* Justification du texte */	
+  
+  cursor         : default;   /* Réinitialisation de notre curseur, sinon par défaut on a le même que notre lien */
+  
+  /* Positionnement de notre info-bulle */
+  top            : 1.8em;     
+  left           : 1px;
+  
+  z-index        : 1000; /* Positionne au premier plan l'info-bulle en cas de chevauchement */
+}  
+
+span.header_2
+{
+   display         : block; 
+   height          : 35px;  /* Hauteur correspondant à celle de notre image */
+   line-height     : 220%;  /* Propriété qui centrera le texte verticalement */
+   text-align      : center;
+   /*background      : transparent url('./top.gif') no-repeat 0 0;*/ 
+   background     : #FFFFFF;   /* DDEEFFDéfinition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* Définition des bordures */
+   padding        : 6px;       /* Définition des marges intérieures */	  
+   font-size       : 15px; 
+   font-weight     : bold;
+} 
+
+span.content_2
+{
+   display     : block; 
+   /*background  : transparent url('./centre.gif') repeat-y;*/
+   background     : #FFFFFF;   /* DDEEFFDéfinition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* Définition des bordures */
+   padding        : 12px;       /* Définition des marges intérieures */	  
+   font-size       : 15px; 
+   /*padding     : 0 8px;*/
+} 
+
+span.footer_2
+{
+   display     : block; 
+   height      : 5px; 
+   /*background  : url('./bot.gif') no-repeat bottom left;*/ 
+   background     : #DDEEFF;   /* Définition du fond, sinon on a le même que notre lien */
+   border         : 1px solid #6699FF; /* Définition des bordures */
+   padding        : 6px;       /* Définition des marges intérieures */	  
+   font-size   : 0; /* Corrige l'espacement inutile sous IE */
+}         
+
+/*-----------------------------------------------------------------------------------*/
